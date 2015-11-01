@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+comments here
+-->
+<html>
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		
+    <title>This is the title</title>
+		
+    <!-- Good place for <style> section -->
+    <style type="text/css">
+		</style>
+		
+		<script src="./js/jquery-1.11.2.min.js"></script>
+    
+    <script type="text/javascript">
+    
+      // Wait until the DOM has loaded before querying the document
+      $(document).ready(function(){
+        console.log('The program is starting...');
+        
+        $('#mainp').text('This text is animated!');
+        $('#mainp').slideUp('slow');
+        
+        
+        console.log('...The program has ended.');
+      });
+    
+    </script>
+
+  </head>
+  <body>
+  
+    <div id="maindiv">
+      <p id="mainp">
+        This is the main body text.
+      </p>
+    </div>
+  
+  </body>
+  
+ </html>
