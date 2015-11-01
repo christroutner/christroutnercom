@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+This version loads four markers into the map from the XML file. When a marker
+is clicked, an information window pops and displays the Summary information
+from that locations XML file.
+
+-->
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Collaborative Geo-Data Map</title>
+
+  <!-- Good place for <style> section -->
+  <style type="text/css">
+    html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+  </style>
+
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJSXMXr_4xR7gWMfYb3dAV082sy4eLAMk">
+  </script>
+  <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.csv-0.71.js"></script>
+
+        
+  <script type="text/javascript">
+    debugger;
+    // GLOBAL VARIABLES
+    var map;	//global map object
+    var marker_array = new Array(); //Array of markers on the map.
+
+    var xmlDoc; //Used to store the XML for the currently selected marker.
+    var xmlMarkerIndex; //Used to store the index of the currently selected marker in marker_array.
+
+    // Wait until the DOM has loaded before querying the document
+    $(document).ready(function(){
+
+      var csvData = new Array();			//Contains the data read from the CSV file.                
+
+      // Temporary variables that I need to share between functions.
+      var i; // counting variable.
+
+
+      //Create a custom event for when the CSV file finishes loading.
+      var CSVevent = new CustomEvent('CSVLoaded', {
+      });
+
+      //Create a custom event for when the XML file is finished loading.
+      var XMLevent = new CustomEvent('XMLLoaded', {
+      });
+
+      //Get the CSV file containing the marker data. Trigger the CSVLoaded
+      //event once the file finishes loading.
+      var txtFile = new XMLHttpRequest();
+      txtFile.open("GET", "./files/MarkerData.csv", true);
+      txtFile.onreadystatechange = function() {
+        if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+          if (txtFile.status === 200) {  // Makes sure it's found the file.
+
+            //convert the text from the csv file to an array of CSV data.
+            csvData = $.csv.toArrays(txtFile.responseText);
+
+            //Update the text in the body to indicate that the file had been downloaded.
+            $('#FileDownloadStatus').html("<p>File downloaded.</p> <p>Loading Map...</p>");
+
+            //Trigger the CSVevent to signal that the CSV has finished loading.
+            document.dispatchEvent(CSVevent)
+
+          }
+        }
+      }
+      txtFile.send(null); //Execute the file request.
+
+      //Wrap the initialization of the map in an event listener that fires *after* the CSV file has finished loading.
+      document.addEventListener('CSVLoaded', function (e) {
+        //Call the initialize function to initialize the map and load the markers.
+        initialize();
+      }, false);
+
+      //Initialize the map and add markers.
+      //This function is called by the CSVEvent.
+      function initialize() {
+
+        var mapOptions = {
+          center: { lat: 48.555705, lng: -122.960358},
+          zoom: 11
+        };
+
+        // Create the map.
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+        //Create the map markers from the data stored in the CSV file
+        var poi_array = new Array();
+
+        for(i = 0; i < csvData.length; i++) {
+          //Create an array of Points of Interest Lat and Long coordinates for creating markers with
+          poi_array[i] = new google.maps.LatLng(csvData[i][2], csvData[i][3]);
+
+          // Create a marker for each line item in the CSV file.
+          marker_array[i] = new google.maps.Marker({position: poi_array[i], map: map, title: csvData[i][1]});
+
+          //Load the UniqueID into the marker object by creating a new .UniqueID property.
+          marker_array[i].UniqueID = csvData[i][0];
+
+          //Load the marker_array index into the marker object, so the two can reference each other.
+          marker_array[i].MarkerArrayIndex = i;
+
+          //Attach the 'click' event listener to each marker, 
+          //to execute the loading of an info window.
+          //Every time a marker is clicked, this event will call the LoadInfoWindow() function.
+          google.maps.event.addListener(marker_array[i], 'click', LoadInfoWindow);
+
+        }
+      }
+
+
+
+      //Create the info windows.
+      //This requires loading the XML data for that marker.
+      //This function is called by the 'click' event for a marker.
+      function LoadInfoWindow() {
+        //Note: In this case, 'this' refers to the marker object
+        //that called the event.
+
+        //Save the index for the currently selected marker.
+        xmlMarkerIndex = this.MarkerArrayIndex;
+
+        // Retrieve the XML file for this marker.
+        // Call the XMLevent after the file finishes loading.
+        var xmlFile = new XMLHttpRequest();
+        var FileName = "./files/locations/" + this.UniqueID + ".xml";
+        xmlFile.open("GET", FileName, true);
+        xmlFile.onreadystatechange = function() {
+          if (xmlFile.readyState === 4) {  // Makes sure the document is ready to parse.
+            if (xmlFile.status === 200) {  // Makes sure it's found the file.
+
+              // Parse the XML from the raw text
+              var parser = new DOMParser();
+              xmlDoc = parser.parseFromString(xmlFile.responseText, "text/xml");
+
+              // Call the XMLEvent to signal that the XML is finished loading
+              document.dispatchEvent(XMLevent)
+
+            }
+          }
+        }
+        xmlFile.send(null); //Execute the file request.
+      }
+
+      // Create an event listener that executes after the XML file has finished loading.
+      // This function creates and loads an info window for the currently clicked marker
+      // after the xml for that marker has been loaded.
+      document.addEventListener('XMLLoaded', function (e) {
+
+        //debugger;
+
+        var contentstring = '<div id="InfoWindowContent">' +
+          '<h1>' + xmlDoc.getElementsByTagName("Title")[0].childNodes[0].nodeValue + '</h1>' +
+          '<br>' +
+          '<p>' + xmlDoc.getElementsByTagName("Summary")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          //'<p><a href="#" target="_blank" onclick="document.forms[0].submit();" >More Details</a></p>' +
+          //ViewDetails.htm?UniqueID=54905789
+          '<p><a href="ViewDetails.htm?UniqueID=' + marker_array[xmlMarkerIndex].UniqueID + '" target="_blank" >More Details</a></p>' +
+          '</div>';
+
+
+        //Create the info window.
+        var infowindow = new google.maps.InfoWindow({
+        //This is where I would load the summary from the XML file along with
+        //buttons to view, modify, and delete the location information.
+
+        //Use the Summary from the XML file.
+          content: contentstring
+        });
+
+        //Open the newly created info window in the map.
+        infowindow.open(map, marker_array[xmlMarkerIndex]); 
+
+      }, false);
+
+    });
+  </script>
+</head>
+<body>	
+        
+        <div id="FileDownloadStatus"> 
+            <p>Waiting for file to download...</p>
+        </div>	
+		
+		<div id="map-canvas"></div>
+    </body>
+</html>

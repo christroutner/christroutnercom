@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="http://christroutner.com/js/getstockdata.js" type="text/javascript"></script>
+    <script src="http://christroutner.com/js/moment.js" type="text/javascript"></script>
+
+    <style>
+      body {
+          font-size:12px;
+          color:#000000;
+          background-color:#ffffff;
+          font-family:verdana, helvetica, arial, sans-serif;
+      }
+      .amChartsButtonSelected {
+          background-color:#CC0000;
+          border-style:solid;
+          border-color:#CC0000;
+          border-width:1px;
+          color:#FFFFFF;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          margin: 1px;
+          padding:3px;
+      }
+      .amChartsButton {
+          background-color:#EEEEEE;
+          border-style:solid;
+          border-color:#CCCCCC;
+          border-width:1px;
+          color:#000000;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          margin: 1px;
+          padding:3px;
+      }
+      .amChartsCompareList {
+          border-style:solid;
+          border-color:#CCCCCC;
+          border-width:1px;
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    <p>
+      This chart downloads the last 30 days of Google stock data off of the Yahoo Finance server. This data is then plotted below in an
+      amChart Stock Chart.
+    </p>
+    <br>
+    
+    <!-- This is the stock chart. It is expanded by the JavaScript below. -->
+    <div id="chartdiv" style="width: 100%; height: 395px;"></div>
+    
+    <!-- This code downloads the stock data and configures the chart data. -->
+    <script type="text/javascript">
+      
+      //Create date-string for today (endDate) and 30 days ago (startDate).
+      var endDate = moment().format('YYYY-MM-DD');
+      var startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
+
+      //Retrieve historical stock data from Yahoo! Finance
+      var chartData = getHistoricalStockData('GOOG', startDate, endDate);
+
+
+      window.onload = function () {
+         var chart = new AmCharts.AmStockChart();
+         chart.pathToImages = "http://www.amcharts.com/lib/3/images/";
+
+         var dataSet = new AmCharts.DataSet();
+         dataSet.dataProvider = chartData;
+         //debugger;
+         dataSet.fieldMappings = [{
+             fromField: "val",
+             toField: "value"
+         }];
+         dataSet.categoryField = "date";
+         dataSet.color = "blue";
+         chart.dataSets = [dataSet];
+
+         var stockPanel = new AmCharts.StockPanel();
+         chart.panels = [stockPanel];
+
+         var legend = new AmCharts.StockLegend();
+         stockPanel.stockLegend = legend;
+
+         var panelsSettings = new AmCharts.PanelsSettings();
+         panelsSettings.startDuration = 1;
+         chart.panelsSettings = panelsSettings;
+
+         var graph = new AmCharts.StockGraph();
+         graph.valueField = "value";
+         graph.type = "line";
+         graph.title = "Google Stock - Last 30 days";
+         graph.bullet = "round";
+         graph.bulletAlpha = 1;
+         //graph.fillAlphas = 1;
+         stockPanel.addStockGraph(graph);
+
+         var categoryAxesSettings = new AmCharts.CategoryAxesSettings();
+         categoryAxesSettings.dashLength = 5;
+         categoryAxesSettings.equalSpacing = true;
+         chart.categoryAxesSettings = categoryAxesSettings;
+
+         var valueAxesSettings = new AmCharts.ValueAxesSettings();
+         valueAxesSettings.dashLength = 5;
+         chart.valueAxesSettings = valueAxesSettings;
+
+         var chartScrollbarSettings = new AmCharts.ChartScrollbarSettings();
+         chartScrollbarSettings.graph = graph;
+         chartScrollbarSettings.graphType = "line";
+         chart.chartScrollbarSettings = chartScrollbarSettings;
+
+         var chartCursorSettings = new AmCharts.ChartCursorSettings();
+         chartCursorSettings.valueBalloonsEnabled = true;
+         chart.chartCursorSettings = chartCursorSettings;
+
+         var periodSelector = new AmCharts.PeriodSelector();
+         periodSelector.periods = [{
+             period: "DD",
+             count: 1,
+             label: "1 day"
+         }, {
+             period: "DD",
+             selected: false,
+             count: 5,
+             label: "5 days"
+         }, {
+             period: "MM",
+             count: 1,
+             label: "1 month"
+         }, {
+             period: "YYYY",
+             count: 1,
+             label: "1 year"
+         }, {
+             period: "YTD",
+             label: "YTD"
+         }, {
+             selected: true,
+             period: "MAX",
+             label: "MAX"
+         }];
+         chart.periodSelector = periodSelector;
+
+         chart.write("chartdiv");
+      }
+    </script>
+    
+  </body>
+</html>
