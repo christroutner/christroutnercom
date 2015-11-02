@@ -1,10 +1,130 @@
 {{!< default}}
 
-<div id="maindiv">
-  <p id="mainp">
-    This is the main body text.
-  </p>
-</div>
+<section id="#scrollspysection">
+    <div class='container'>
+
+      <div class='row'>
+
+        <div class='col-md-2'>
+          <!-- Selfie Image -->
+          <img src='images/me.jpg' class='img-responsive center-block' alt='Chris Troutner' />
+          <br>
+          <b><p class='text-center'>
+            <a href="files/troutner_resume_08_2015.pdf">Download Resume</a>
+          </p></b>
+          <br>
+          <!-- Left Column Button Menu -->
+          <div class='visible-md visible-lg'>
+            <ul class='list-unstyled'>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJavaScript" aria-expanded="false" aria-controls="collapseJavaScript">
+                  JavaScript
+              </a></li><br>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWebDev" aria-expanded="false" aria-controls="collapseWebDev">
+                  Web Design
+              </a></li><br>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEmbedded" aria-expanded="false" aria-controls="collapseEmbedded">
+                  Embedded Software
+              </a></li><br>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCircuits" aria-expanded="false" aria-controls="collapseCircuits">
+                  Electrical Engineering
+              </a></li></br>
+            </ul>          
+          </div>
+        </div>
+
+        <div class='col-md-10'>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <!-- <div ng-controller='panelController as panelCtrl' ng-init='tab=1' class="panel panel-default"> -->
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseAbout')">
+              <div class="panel-heading" role="tab" id="headingAbout">
+                <h1 class="panel-title">
+                  <a role="button" id="titleOverview" data-toggle="collapse" data-parent="#accordion" href="#collapseAbout" aria-expanded="true" aria-controls="collapseAbout">
+                    <i class='glyphicon glyphicon-minus'></i>
+                    Overview
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseAbout" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingAbout">
+                <div class="panel-body">
+                  <content-about></content-about>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseJavaScript')">
+              <div class="panel-heading" role="tab" id="headingJavaScript">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJavaScript" aria-expanded="false" aria-controls="collapseJavaScript">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    JavaScript
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseJavaScript" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJavaScript">
+                <div class="panel-body">
+                  <content-javascript></content-javascript>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseWebDev')">
+              <div class="panel-heading" role="tab" id="headingWebDev">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWebDev" aria-expanded="false" aria-controls="collapseWebDev">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Web Design &amp; SEO
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseWebDev" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWebDev">
+                <div class="panel-body">
+                  <content-webdev></content-webdev>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseEmbedded')">
+              <div class="panel-heading" role="tab" id="headingEmbedded">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEmbedded" aria-expanded="false" aria-controls="collapseEmbedded">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Embedded Software
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseEmbedded" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEmbedded">
+                <div class="panel-body">
+                  <content-embedded></content-embedded>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseCircuits')">
+              <div class="panel-heading" role="tab" id="headingCircuits">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCircuits" aria-expanded="false" aria-controls="collapseCircuits">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Electrical Engineering
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseCircuits" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCircuits">
+                <div class="panel-body">
+                  <!-- <section ng-include="'content-EE.html'"></section> -->
+                  <content-circuits></content-circuits>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
 
 
 <!-- Custom JavaScript -->
