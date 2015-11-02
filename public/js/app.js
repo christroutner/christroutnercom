@@ -121,6 +121,7 @@
   });
   
   app.directive('contentAbout', function() {
+    debugger;
     return  {
       restrict: 'E',
       templateUrl: 'content-about.html'
