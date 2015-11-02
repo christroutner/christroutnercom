@@ -6,10 +6,12 @@ $(document).ready(function ( ) {
   $('#mainp').slideUp('slow');
 
   
-     
+    debugger;   
     //Initialize the glyphicon + and - signs on collapsable panels.
     // id = a string with the id of a DOM element. e.x. '#colapseAbout'
     this.initCollapseIcon = function(id) {
+      
+      debugger;
       
       //This init function attaches the following code to the '.collapse' class events.
       $(id).on("hide.bs.collapse", function(){
