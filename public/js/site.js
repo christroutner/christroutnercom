@@ -123,18 +123,52 @@ var initCollapseIcon = function (id) {
 
 };
 
+
 //This function is called everytime a collapsable panel is expanded. It's
 //purpose is to dynamically load content as needed.
+//'id' is the jQuery pointer to the parent of the element that was clicked.
+//This function called by initCollapseIcon().
 var LoadContent = function(id) {
   
   debugger;
   
-  if( id.parent().attr('id') == 'collapseJavaScript' ) {
-    if( contentLoaded[1] == false ) {
-      id.load('/content-javascript.html');
-      contentLoaded[1] = true;
-    }
+  switch (id) {
+    case 'collapseAbout':
+      if( contentLoaded[0] == false) {
+        id.load('/content-about.html')
+        contentLoaded[0] = true;
+      }
+      break;
     
+    case 'collapseJavaScript':
+      if( contentLoaded[1] == false ) {
+        id.load('/content-javascript.html');
+        contentLoaded[1] = true;
+      }
+      break;
+      
+    case 'collapseWebDev':
+      if( contentLoaded[2] == false ) {
+        id.load('/content-webdev.html');
+        contentLoaded[2] = true;
+      }
+      break;
+      
+    case 'collapseEmbedded':
+      if( contentLoaded[3] == false ) {
+        id.load('/content-embedded.html');
+        contentLoaded[3] = true;
+      }
+      break;
+      
+    case 'collapseCircuits':
+      if( contentLoaded[4] == false ) {
+        id.load('/content-EE.html');
+        contentLoaded[4] = true;
+      }
+      break;
   }
+  
+  
   
 }
