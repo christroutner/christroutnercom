@@ -16,7 +16,7 @@
   }
   
   app.controller('PrimaryController', function() {    
-    
+    debugger;
     function initFnc() {
     
       debugger;
