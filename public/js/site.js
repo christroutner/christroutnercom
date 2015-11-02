@@ -45,7 +45,7 @@ $.fn.scrollView = function () {
 var initCollapseIcon = function (id) {
 //this.initCollapseIcon = function(id) { //Angular code
 
-  debugger;
+  //debugger;
 
   //This init function attaches the following code to the '.collapse' class events.
   $(id).on("hide.bs.collapse", function(){
@@ -60,7 +60,7 @@ var initCollapseIcon = function (id) {
   });
   $(id).on("show.bs.collapse", function(){
 
-
+    debugger;
 
     //Walk the DOM and find the nearest glyphicon icon.
     var glyf = $(this).parent().find(".glyphicon")[0];
