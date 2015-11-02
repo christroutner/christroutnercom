@@ -68,6 +68,9 @@ var initCollapseIcon = function (id) {
     //Switch the plus to a minus.
     $(glyf).removeClass('glyphicon-plus');
     $(glyf).addClass('glyphicon-minus');
+    
+    //Load content if it hasn't been loaded yet.
+    LoadContent($(this).parent().find('.panel-body'));
 
     //Scroll to the spot that was just clicked
     //debugger;
@@ -115,3 +118,8 @@ var initCollapseIcon = function (id) {
   });
 
 };
+
+var LoadContent = function(id) {
+  
+  debugger;
+}
