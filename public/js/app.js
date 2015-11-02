@@ -1,5 +1,7 @@
 (function() {
   
+  debugger;
+  
   var parentDiv; //Used to hold a jQuery variable for scrolling.
   
   var app = angular.module('mainPage', []);
