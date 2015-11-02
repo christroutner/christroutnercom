@@ -14,8 +14,14 @@ $(document).ready(function ( ) {
 
   
   debugger;   
-    
-  initCollapseIcon($('#collapseAbout'))
+  
+  //Initialize the animation of  + & - glyphicons to indicate the collapse state of each panel.
+  initCollapseIcon($('#collapseAbout'));
+  initCollapseIcon($('#collapseJavaScript'));
+  initCollapseIcon($('#collapseWebDev'));
+  initCollapseIcon($('#collapseEmbedded'));
+  initCollapseIcon($('#collapseCircuits'));
+  
  
 
   console.log('...The program has ended.');
