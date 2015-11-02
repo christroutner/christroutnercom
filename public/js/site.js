@@ -5,6 +5,10 @@ Dev Notes:
 should be clear as when they are called and how they are used within the website/program.
 */
 
+//Global Variables
+var parentDiv; //Used to hold a jQuery variable for scrolling.
+var contentLoaded = [false, false, false, false, false]; //Used to track if content has been loaded
+
 // Wait until the DOM has loaded before querying the document
 $(document).ready(function ( ) {
   console.log('The program is starting...');
@@ -60,7 +64,7 @@ var initCollapseIcon = function (id) {
   });
   $(id).on("show.bs.collapse", function(){
 
-    debugger;
+    //debugger;
 
     //Walk the DOM and find the nearest glyphicon icon.
     var glyf = $(this).parent().find(".glyphicon")[0];
@@ -119,7 +123,18 @@ var initCollapseIcon = function (id) {
 
 };
 
+//This function is called everytime a collapsable panel is expanded. It's
+//purpose is to dynamically load content as needed.
 var LoadContent = function(id) {
   
   debugger;
+  
+  if( id.parent().attr('id') == 'collapseJavaScript' ) {
+    if( contentLoaded[1] == false ) {
+      id.load('/content-javascript.html');
+      contentLoaded[1] = true;
+    }
+    
+  }
+  
 }
