@@ -26,7 +26,8 @@ $(document).ready(function ( ) {
   initCollapseIcon($('#collapseEmbedded'));
   initCollapseIcon($('#collapseCircuits'));
   
- 
+  //Load the About/Overview section as initial content after site has been loaded.
+  LoadContent($('#collapseAbout').find('.panel-body'));
 
   console.log('...The program has ended.');
 });
