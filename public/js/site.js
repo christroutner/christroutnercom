@@ -132,7 +132,7 @@ var LoadContent = function(id) {
   
   debugger;
   
-  switch (id) {
+  switch (id.parent().attr('id')) {
     case 'collapseAbout':
       if( contentLoaded[0] == false) {
         id.load('/content-about.html')
