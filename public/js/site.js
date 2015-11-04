@@ -131,7 +131,7 @@ var initCollapseIcon = function (id) {
 //This function called by initCollapseIcon().
 var LoadContent = function(id) {
   
-  debugger;
+  //debugger;
   
   switch (id.parent().attr('id')) {
     case 'collapseAbout':
