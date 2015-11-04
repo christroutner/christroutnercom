@@ -20,7 +20,6 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'hbs',
-	'port': '80',
 	
 	'custom engine': handlebars.create({
 		layoutsDir: 'templates/views/layouts',
