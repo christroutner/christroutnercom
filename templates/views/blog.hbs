@@ -10,7 +10,7 @@
 				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
 					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
 					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
+							{{#if author.name.first}}by {{author.name.first}} on {{date publishedDate format='MMMM DD, YYYY'}}{{/if}}
 					</p>
 					<p>{{{content.extended}}}</p>
 					<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>
@@ -31,12 +31,4 @@
 	{{>pagination}}
 </div>
 
-{{#if data}}
-  <script type="text/javascript">
-    var blogdata = {{{JSON data}}}
-  </script>
-  <p>blog data loaded.</p>
-{{else}}
-  <h3 class="text-muted">Blog data not loaded.</h3>
-{{/if}}
 
