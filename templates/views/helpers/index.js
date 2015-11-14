@@ -348,6 +348,15 @@ module.exports = function() {
 	_helpers.underscoreFormat = function (obj, underscoreMethod) {
 		return obj._[underscoreMethod].format();
 	}
+
+	// JSON.stringify helper.
+        // This is used to send JSON data to the front-end so that it can be handled
+        // by front-end JavaScript.
+        // 10/21/15 Chris Troutner
+        _helpers.JSON = function(obj, options) {
+         debugger;
+         return JSON.stringify(obj);
+        }
 	
 	return _helpers;
 };
