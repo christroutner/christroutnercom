@@ -28,7 +28,8 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views')
+	views: importRoutes('./views'),
+	api: importRoutes('./api')
 };
 
 // Setup Route Bindings
@@ -40,6 +41,13 @@ exports = module.exports = function(app) {
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
+
+        //API for blog comments
+        app.get('/api/postcomments/list', keystone.middleware.api, routes.api.postcomments.list);
+        app.get('/api/postcomments/:id', keystone.middleware.api, routes.api.postcomments.get);
+        app.all('/api/postcomments/:id/update', keystone.middleware.api, routes.api.postcomments.update);
+        app.all('/api/postcomments/create', keystone.middleware.api, routes.api.postcomments.create);
+
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
