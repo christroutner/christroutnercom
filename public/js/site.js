@@ -136,7 +136,9 @@ var LoadContent = function(id) {
   switch (id.parent().attr('id')) {
     case 'collapseAbout':
       if( contentLoaded[0] == false) {
-        id.load('/content-about.html')
+        debugger;
+        id.load('/content-about.html');
+        $('#collapseAbout').find('.defaultMessage').hide(); //Hide the default message
         contentLoaded[0] = true;
       }
       break;
