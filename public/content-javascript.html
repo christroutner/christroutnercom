@@ -2,7 +2,7 @@
 
   <p>These days JavaScript is <b>everywhere</b>. I started learning JavaScript in earnest at Xerox while developing control and UI software for the text fixtures I designed. At Integra I maintained and expanded their testing scripts that perform automated testing on their flagship product. These tests were written in JavaScript and executed through the Windows Script interpreter, wScript.</p> 
 
-  <p>I have used JavaScript to create animated and Responsive webpages (like this one) for several years, but began to spend significant effort in 2013 expanding my knowledge of both front and back end libraries, as well as communication protocols like REST APIs and AJAX calls. There has been an explosion of cheap, networked, 32-bit mini-computers like the Raspberry Pi and Arduino, as well as the growing trend of the Internet of Things (IoT). I believe that JavaScript provides the tools to build awesome web-based user interfaces for IoT devices and server-side JavaScript (like Node.js) allows for control of embedded devices too. I am currently playing with a Raspberry Pi to develop an embedded webserver that can remotely read sensors and actuate switches, all controlled with JavaScript. 
+  <p>I have used JavaScript to create animated and Responsive webpages (like this one) for several years, but began to spend significant effort in 2013 expanding my knowledge of both front and back end libraries, as well as communication protocols like REST APIs and AJAX calls. There has been an explosion of cheap, networked, 32-bit mini-computers like the Raspberry Pi and Arduino, as well as the growing trend of the Internet of Things (IoT). I believe that JavaScript provides the tools to build awesome web-based user interfaces for IoT devices and server-side JavaScript (like Node.js) allows for control of those embedded devices too. I am currently playing with a Raspberry Pi to develop an embedded webserver that can remotely read sensors and actuate switches, all controlled with JavaScript. 
   </p>
   
   <div class="panel-group" id="panelJavaScript" role="tablist" aria-multiselectable="true">
@@ -19,9 +19,9 @@
         <div class="panel-body">
           <p>At Xerox I wrote test scripts in JavaScript that would run functional tests on the circuit board sub-components of their printer products. As the
             circuit boards would reach the end of the assembly line, prior to final assembly, they would be put into a test fixture. A bed of needles would be
-            lowered onto the circuit board and connect it a computer on the test fixture. I designed the interface hardware, programmed the embedded microcontrollers in C, and wrote the
+            lowered onto the circuit board and connect it to a computer on the test fixture. I designed the interface hardware, programmed the embedded microcontrollers in C, and wrote the
             functional testing software on the computer in JavaScript. The software would put the circuit board through its paces and catalog any unexpected
-            behavior. Tests were prioritized and results uploaded to a central server for data mining. These fixtures were essential for Xerox's six-sigma
+            behavior. Tests were prioritized and results uploaded to a database on a central server for data mining. These fixtures were essential for Xerox's six-sigma
             management strategy and warranty insurance research.</p><br>
 
             <p>My position at Integra was as a software tester. About half my job was manual testing and the other half I spent on maintaining their suite
@@ -43,15 +43,28 @@
         <div class="panel-body">
           
           <p>
-            This website is itself an example of the Front-End work I've done. This site uses Twitter Bootstrap for the site layout and JavaScript sprinkled
-            throughout the HTML using Angular. Resize the browser window to test the Responsive mobile-friendly layout. 
+            This section showcases examples of my front end work. These days, every front end project I build is based on 
+            <a href="http://getbootstrap.com" target="_blank">Twitter’s Bootstrap framework</a>. In the last few months, 
+            I’ve been borrowing heavily from the open source <a href="https://almsaeedstudio.com/preview" target="_blank">AdminLTE Template</a>, 
+            also based on Bootstrap. 
           </p>
-            <p>
-            I've been interested in GPS and Google Maps for several years. Over the last two years I've taught myself the ins and outs of the Google Map API.
-            Over the last year I've also been playing with a SPOT Satellite tracking device and learning how to integrate it with a Google Map. 
-            Below are examples of Google Map application prototypes I've built, which have a front-end and back-end component. 
+          <p>
+            In its present state, this site runs on top of the <a href="http://keystonejs.com/" target="_blank">KeystoneJS CMS</a> 
+            and does not use a front end framework. You can view a previous version of this site below that was built using the 
+            Angular.js framework. In my last few projects, I’ve gravitated away from Angular.js in favor of Backbone.js. 
+            I appreciate Backbone’s light weight and unopinionated structure. There is nothing wrong with Angular, and 
+            I am comfortable coding with that framework. Deciding to use one over the other comes down to personal preference, 
+            which is the conclusion I’ve seen <a href="https://github.com/jashkenas/backbone/wiki/Projects-and-Companies-using-Backbone" target="_blank">
+            drawn by other programmers and organizations</a>.
           </p>
           <br>
+          <h3>Example of Front End Work:</h3>
+          <p>
+            I've been interested in GPS and Google Maps for several years. Over the last two years I've taught myself the ins and outs of the 
+            <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Map API</a>. Over the last year 
+            I've also been playing with a SPOT Satellite tracking device and learning how to integrate it 
+            with a Google Map. Below are examples of Google Map application prototypes I've built, which have a front-end and back-end component.
+          </p>
           <ul>
             <li>
             <a href="SPOTMap.html" target="_blank">SPOT Tracker Map</a> - I wrote this application to display a sliding window of GPS data from my SPOT tracker. I use it to keep track 
@@ -81,8 +94,10 @@
             <br>
             <li>
               <p>
-              <b>This Site!</b> - This site uses the Twitter Bootstrap framework accentuated with custom JavaScript code sprinkled throughout the HTML using the Angular.js
-              framework. 
+              <b><a href="http://christroutner.com/ct-v1.2/" target="_blank">v2 Of This Site!</a></b> - This is an earlier version of this site that uses the Twitter Bootstrap framework accentuated with custom JavaScript code sprinkled throughout the HTML using the Angular.js
+              framework. The Angular code can be found in <a href="http://christroutner.com/ct-v1.2/js/app.js">this file</a>. All the features
+                listed below are still present in the current version, but I've taken them out of Angular and implemented them with strait jQuery
+                calls:
               <ul>
                 <li>The content sections have been modularized using Angular Directives.</li>
                 <li>The animation for Back-End section below uses a custom Directive to inject the animation HTML into the page.</li>
@@ -93,6 +108,9 @@
             </li>
             <ul><li><a href="https://github.com/christroutner/ct-v1.2" target="_blank">View GitHub Repository</a></li></ul>
             <br>
+            <p>
+              I am working on a new version of this site that ports the code over to the Backbone.js framework and incorporates the <a href="https://almsaeedstudio.com/" target="_blank">AdminLTE template</a>.
+            </p>
           </ul>
 
 
