@@ -5,32 +5,46 @@
        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJSXMXr_4xR7gWMfYb3dAV082sy4eLAMk">
     </script>
     <link rel="stylesheet" href="styles/jquery-ui.min.css">
-    <script src="js/jquery/jquery-1.11.3.min.js"></script>
-    <script src="js/jquery/jquery.csv-0.71.js"></script>
-    <script src="js/jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/SPOTMap11.js"></script>
+    <link href="styles/bootstrap/bootstrap.min.css" media="all" rel="stylesheet" />
+    
     
     
   </head>
   <body>
-    <p>
-      Move the two bars on the slider to select a date range. The map below will show my GPS breadcrumb trail for that date range.
-    </p>
-    <br>
-    <p>
-      <label for="amount">Date range:</label>
-      <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-    </p>
-    <div id="slider"></div>
-    <br></br>
-    
-    <center>
-      <div id="map_canvas" style="width:550px; height:550px; border: 2px solid darkgreen"></div>
-    </center>
-  
-    <script type="text/javascript">
-      loadmap();
-    </script>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <p>
+            Move the two bars on the slider to select a date range. 
+            The map below will show my GPS breadcrumb trail for that date range. <br><br>
+            The data ends at 12/11/2015 because my subscription with the SPOT service expired, but you can retrace my 2015 sailing expedition
+            from Anacortes, Washington to Desolation Sound in the Inside Passage of British Columbia, Canada during the summer of 2015.
+          </p>
+          <br>
+          <p>
+            <label for="amount">Date range:</label>
+            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+          </p>
+          <div id="slider"></div>
+          <br></br>
+
+          <center>
+            <div id="map_canvas" style="width:550px; height:550px; border: 2px solid darkgreen"></div>
+          </center>
+
+        </div>      
+      </div>
+    </div>
     
   </body>
+
+  <script src="js/jquery/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery/jquery.csv-0.71.js"></script>
+  <script src="js/jquery/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/SPOTMap11.js"></script>
+
+  <script type="text/javascript">
+      loadmap();
+  </script>
+
 </html>
