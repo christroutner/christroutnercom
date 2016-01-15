@@ -1,7 +1,7 @@
 /*
 Dev Notes:
 -The $(document).ready() is called upon page load and can be considered the 'main' program function.
--The subfunctions listed below ready() are support functions and the comments at the top of each function\
+-The subfunctions listed below ready() are support functions and the comments at the top of each function
 should be clear as when they are called and how they are used within the website/program.
 */
 
