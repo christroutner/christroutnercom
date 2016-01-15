@@ -136,9 +136,8 @@ var LoadContent = function(id) {
   switch (id.parent().attr('id')) {
     case 'collapseAbout':
       if( contentLoaded[0] == false) {
-        debugger;
         id.load('/content-about.html');
-        $('#collapseAbout').find('.defaultMessage').hide(); //Hide the default message
+        id.find('.defaultMessage').hide(); //Hide the default message
         contentLoaded[0] = true;
       }
       break;
@@ -146,6 +145,7 @@ var LoadContent = function(id) {
     case 'collapseJavaScript':
       if( contentLoaded[1] == false ) {
         id.load('/content-javascript.html');
+        id.find('.defaultMessage').hide(); //Hide the default message
         contentLoaded[1] = true;
       }
       break;
@@ -153,6 +153,7 @@ var LoadContent = function(id) {
     case 'collapseWebDev':
       if( contentLoaded[2] == false ) {
         id.load('/content-webdev.html');
+        id.find('.defaultMessage').hide(); //Hide the default message
         contentLoaded[2] = true;
       }
       break;
@@ -160,6 +161,7 @@ var LoadContent = function(id) {
     case 'collapseEmbedded':
       if( contentLoaded[3] == false ) {
         id.load('/content-embedded.html');
+        id.find('.defaultMessage').hide(); //Hide the default message
         contentLoaded[3] = true;
       }
       break;
@@ -167,6 +169,7 @@ var LoadContent = function(id) {
     case 'collapseCircuits':
       if( contentLoaded[4] == false ) {
         id.load('/content-EE.html');
+        id.find('.defaultMessage').hide(); //Hide the default message
         contentLoaded[4] = true;
       }
       break;
