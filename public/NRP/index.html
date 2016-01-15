@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Network Resource Planning (NRP)</title>
+
+  <link href="css/bootstrap.min.css" media="all" rel="stylesheet" />
+  <link href="css/main.css" media="all" rel="stylesheet" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<style>
+	li:hover {
+		color: blue;
+	}
+	
+	.hover:hover {
+		color: blue;
+	}
+  
+  .card:hover {
+    background-color: #C0C0C0;
+  }
+</style>
+
+<header class='navbar navbar-default navbar-static-top'>
+  <nav class='container' role='navigation'>
+    <div class='navbar-header'>
+      <a href='index.html' class='navbar-brand'>Network Resource Planning - Sensorica</a>
+	
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+	
+    </div>
+	    
+	<ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+      <li><a href='#'>Dashboard</a></li>
+      <li><a href='#'>Projects</a></li>
+	  <li><a href='#'>People</a></li>
+      <li class='dropdown'>
+        <a href='/about' data-target='#' class='dropdown-toggle' data-toggle='dropdown'>Contributions <span class='caret'></span></a>
+        <ul class='dropdown-menu' role='menu'>
+          <li><a href='#'>Labor</a></li>
+          <li><a href='#'>Resources</a></li>
+          <li class='divider'></li>
+          <li><a href='#'>Financial</a></li>
+        </ul>
+      </li>
+	  <li><a href='#'>Network Activity</a></li>
+    </ul>
+	<br>
+	
+	
+  </nav>
+  <a href="#"><p class="pull-right" style="font-size: 18px; color: green;"><b>Log Time Now</b><span class="glyphicon glyphicon-chevron-right" style="color: green;"></span></p></a>
+</header>
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <h1>People</h1>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <form class="form-inline">
+        <div class="form-group">
+          <span class="glyphicon glyphicon-search"></span>
+          <label for="exampleInputName2" class="hidden-sm">Search Tags:</label>
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+          <span>(Separate tags with commas)</span>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="row">
+        <div class="col-sm-11 well well-lg hidden-xs">
+          <p><u>Members Online:</u><p>
+          <ul  class="list-unstyled">
+            <li><span class="glyphicon glyphicon-user"></span> Bruce Merlo</li>
+            <li><span class="glyphicon glyphicon-user"></span> Maria Frangos</li>
+            <li><span class="glyphicon glyphicon-user"></span> Chris Troutner</li>
+          </ul>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+    </div>
+	
+	 <div class="col-sm-10 col-xs-12">
+    <div class="row">
+      
+      <div class="col-md-3 col-sm-4 col-xs-12 well well-lg card">
+        <span class='dropdown pull-right'>
+          <a data-toggle="dropdown" class='dropdown-toggle' href="#">
+            <span  class="glyphicon glyphicon-chevron-down"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Message</a></li>
+            <li><a href="#">Invite to Collaborate</a></li>
+            <li><a href="#">Recommend Task</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">View Profile</a></li>
+          </ul>
+        </span>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="center-block img-responsive" src="images/profile-placeholder-white-grey.jpg" />
+          </div>
+          <div class="col-sm-8">
+            <h4 class="hover">Bruce Merlo</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="list-unstyled">
+              <li>Montreal</li>
+              <li>bruce@sensorica.co</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">JavaScript</button>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">UI Design</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">Video Editing</button>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1 hidden-sm hidden-xs"></div>
+
+      <div class="col-md-3 col-sm-4  col-xs-12 well well-lg card">
+        <span class='dropdown pull-right'>
+          <a data-toggle="dropdown" class='dropdown-toggle' href="#">
+            <span  class="glyphicon glyphicon-chevron-down"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Message</a></li>
+            <li><a href="#">Invite to Collaborate</a></li>
+            <li><a href="#">Recommend Task</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">View Profile</a></li>
+          </ul>
+        </span>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="center-block img-responsive" src="images/profile-placeholder-white-grey.jpg" />
+          </div>
+          <div class="col-sm-8">
+            <h4 class="hover">Maria Frangos</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="list-unstyled">
+              <li>Montreal</li>
+              <li>maria@sensorica.co</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">JavaScript</button>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">UI Design</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">Video Editing</button>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1 hidden-sm hidden-xs"></div>
+
+      <div class="col-md-3 col-sm-4  col-xs-12 well well-lg card">
+        <span class='dropdown pull-right'>
+          <a data-toggle="dropdown" class='dropdown-toggle' href="#">
+            <span  class="glyphicon glyphicon-chevron-down"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Message</a></li>
+            <li><a href="#">Invite to Collaborate</a></li>
+            <li><a href="#">Recommend Task</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">View Profile</a></li>
+          </ul>
+        </span>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="center-block img-responsive" src="images/profile-placeholder-white-grey.jpg" />
+          </div>
+          <div class="col-sm-8">
+            <h4 class="hover">Chris Troutner</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="list-unstyled">
+              <li>Washington</li>
+              <li>chris@sensorica.co</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">JavaScript</button>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">UI Design</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">Video Editing</button>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-info">CSS</button>
+          </div>
+        </div>
+      </div>
+	  </div>
+	 </div>
+  </div>
+</section>
+
+<br><br>
+
+
+
+<div class='footer'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-4 col-md-3 col-xs-6'>
+        <h4>Who We Are</h4>
+        <p><i>Blasting Off With Bootstrap</i> is the fastest way to space. <a href='#'>Book your ticket today</a>!</p>
+        <p><a href='#'>More About Us <i class='glyphicon glyphicon-arrow-right'></i></a></p>
+      </div>
+
+      <div class='col-sm-2 col-xs-6 col-md-offset-1'>
+        <h4>Links</h4>
+        <ul class='list-unstyled'>
+          <li><a href='#'>Home</a></li>
+          <li><a href='#'>Tickets</a></li>
+          <li><a href='#'>Stations</a></li>
+        </ul>
+      </div>
+
+      <div class='clearfix visible-xs'></div>
+
+      <div class='col-sm-2 col-xs-6'>
+        <h4>Stay in Touch</h4>
+        <ul class='list-unstyled'>
+          <li><a href='#'>About</a></li>
+          <li><a href='#'>Contact Us</a></li>
+          <li><a href='#'>Blog</a></li>
+          <li><a href='#'>Twitter</a></li>
+          <li><a href='#'>Facebook</a></li>
+        </ul>
+      </div>
+
+      <div class='col-sm-4 col-md-3 col-md-offset-1 col-xs-6'>
+        <h4>Contact Us</h4>
+        <ul class='list-unstyled'>
+          <li><i class='glyphicon glyphicon-globe'></i> Orlando, FL<li>
+          <li><i class='glyphicon glyphicon-phone'></i> 1-555-blast-off<li>
+          <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:#'>blastingoff@codeschool.com</a><li>
+        </ul>
+
+        <p>Blasting Off With Bootstrap &copy;2214.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js?body=1"></script>
+  
+    <!--  This snippet used to collapse hamburger menu on extra-small screens.
+        Source: http://bit.ly/1N1M6r4 -->
+  <script type="text/javascript">
+    $(document).on('click','.navbar-collapse.in',function(e) {
+      if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+          $(this).collapse('hide');
+      }
+    }); 
+  </script>
+</body>
+</html>

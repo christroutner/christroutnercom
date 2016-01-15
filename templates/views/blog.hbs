@@ -26,9 +26,27 @@
 				<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
 				{{/each}}
 			</div>
+			<br><br>
+			<div>
+				<ul class="list-group">
+					<li class="active list-group-item">Blog Posts by Title:</li>
+					{{# each data.posts.results }}
+					<li class="list-group-item"><a href="{{postUrl slug}}">{{{title}}}</a></li>
+					{{/each}}					
+				</ul>
+			</div>
 		</div>
 	</div>
 	{{>pagination}}
 </div>
 
+
+{{#if data}}
+  <script type="text/javascript">
+    var blogdata = {{{JSON data}}}
+  </script>
+  <p>blog data loaded.</p>
+{{else}}
+  <h3 class="text-muted">Blog data not loaded.</h3>
+{{/if}}
 
