@@ -47,7 +47,7 @@ function loadmap() {
     var txtFile = new XMLHttpRequest();
     //Note: Server must be set up with the CORS Access-Control-Allow-Origin header set to '*'. 
     //See email I sent to myself about setting this up on a windows server.
-    txtFile.open("GET", "http://ec2-54-201-251-131.us-west-2.compute.amazonaws.com/SolaceSPOTData.csv", true);
+    txtFile.open("GET", "/SolaceSPOTData.csv", true);
     txtFile.onreadystatechange = function() {
       if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
         if (txtFile.status === 200) {  // Makes sure it's found the file.
