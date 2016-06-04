@@ -35,7 +35,7 @@
         <h2 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" href="#collapsejQuery" aria-expanded="false" aria-controls="collapsejQuery">
             <i class='glyphicon glyphicon-plus'></i>
-            Front-End: jQuery, AJAX, and Google Maps
+            Front End: jQuery, AJAX, and Google Maps
           </a>
         </h2>
       </div>
@@ -69,22 +69,14 @@
               </p>
               <ul>
                 <li>
-                  <a href="SPOTMap.html" target="_blank">SPOT Tracker Map</a> - I wrote this application to display a sliding window of GPS data from my SPOT tracker. I use it to keep track 
-                    of my sailing journeys and to share my location with readers of <a href="http://sanjuansufficiency.com" target="_blank">my 
+                  <a href="SPOTMap.html" target="_blank">SPOT Tracker Map</a> - I wrote this application to display a sliding window of GPS data from my SPOT tracker. 
+                  I used it to keep track of my four-month sailing journey in 2015 and to share my location  with readers of 
+                  <a href="http://sanjuansufficiency.com" target="_blank">my 
                     sailing blog</a>. The code controlling the Google Map and slider controls 
                     <a href="http://christroutner.com/js/SPOTMap11.js">can be viewed here</a>.
                     With comments, it's under 200 lines of code.
                 </li>
                 <ul><li><a href="https://github.com/christroutner/SPOT-JS" target="_blank">View GitHub Repository</a></li></ul>
-                <br>
-
-                <li>
-                <a href="http://christroutner.com:3000/MultipleMaps.html" target="_blank">Collaborative Geo-Data</a> - This application allows people to interactively update a common database of geographical data. I had intended
-                  to use this application to allow other boaters to share information about anchorages in remote locations and sources of wild food
-                  nearby. Unfortunately <a href="https://activecaptain.com/X.php" target="_blank">Active Captain</a> came up with this idea before me. I decided to release the code as Open Source 
-                  under the GNUv2 license.
-                </li>
-                <ul><li><a href="https://github.com/christroutner/Collaborative-Geo-Data-v0.1.02/" target="_blank">View GitHub Repository</a></li></ul>
                 <br>
               </ul>  
             </li>
@@ -93,8 +85,8 @@
               <h3>Animation</h3>
               <ul>
                 <li>
-                  <a href="http://islandwebhelp.com" target="_blank">Island Web Help</a> - Above the fold on my freelance web design site
-                  is an elaborate animation whos purpose is to convey the services I can offer to potential clients. Unlike a video, viewers
+                  <a href="http://islandwebhelp.com" target="_blank">Island Web Help</a> - Above the fold on my freelance web design site 
+                  is an elaborate animation with the purpose of conveying the services I can offer to potential clients.  Unlike a video, viewers
                   don't have to worry about buffering or resolution downgrades. The animation uses jQuery calls for all the manipulation,
                   and using the Bootstrap framework ensures that the animation looks good on all different sizes of screens. The animation
                   relies heavily on the <a href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a> library.
@@ -119,9 +111,9 @@
                     listed below are still present in the current version, but I've taken them out of Angular and implemented them with jQuery
                     calls and <a href="http://christroutner.com/js/site.js" target="_blank">frameworkless code</a>:
                   <ul>
-                    <li>The content sections have been modularized using Angular Directives.</li>
-                    <li>The animation for Back-End section below uses a custom Directive to inject the animation HTML into the page.</li>
-                    <li>The collapsing panels that make up this website are native to Bootstrap, but the animation of the '+' and '-' signs is custom code attached to panel elements with another custom Angular Directive.</li>
+                    <li>The content sections have been modularized into separate files using Angular Directives.</li>
+                    <li>The collapsing panels that make up this website are native to Bootstrap, but the animation of the '+' and '-' signs is custom code 
+                      attached to panel elements with another custom Angular Directive.</li>
                   </ul> 
                    All the code used on this site is freely available without restriction and can be downloaded via GitHub.
                   </p>
@@ -167,17 +159,21 @@
         <h2 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" href="#collapseNode" aria-expanded="false" aria-controls="collapseNode">
             <i class='glyphicon glyphicon-plus'></i>
-            Back-End: Node.js and Embedded Web Server
+            Back End: Node.js and Embedded Web Server
           </a>
         </h2>
       </div>
       <div id="collapseNode" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNode">
         <div class="panel-body">
           <p>
-            I became interested in Node (or Node.js) for its ability to execute Back-end/Server-side functions with programs written in JavaScript.
-            This is handy in many places, but my personal interest was in open-source, embedded web servers such as the <a href="https://www.sparkfun.com/products/12994" target="_blank">Raspberry Pi</a>.
-            The examples below were originally designed and run on a Raspberry Pi. For purposes of demonstration on this site, I ported the code to Node servers running Windows 2008 Server in the Amazon EC2 Cloud. 
-            The code examples below discuss the backend components of the examples listed above in the Front-End section.<p>
+            I became interested in Node (or Node.js) and the Express.js framework for its ability to execute Back-end/Server-side functions with programs 
+            written in JavaScript.
+            This is handy in many places, but my personal interest was in open-source, embedded web servers such as the 
+            <a href="https://www.sparkfun.com/products/12994" target="_blank">Raspberry Pi</a>.
+            For purposes of demonstration on this site, I ported the code to Node servers running Windows 2008 Server in the Amazon EC2 Cloud, 
+            then later moved the same code to Digital Ocean Droplets running Unbuntu Linux. Because the code is in JavaScript and Node runs 
+            on all these operating systems, no code changes were necessary. 
+          <p>
             
           <p>
             The code examples never progressed past the prototyping stage, so they used simple CSV files for data storage. 
@@ -201,19 +197,24 @@
                 This server is responsible for downloading the tracking data once per day and appending new data to a CSV file stored on the server.
               </p>
               <br>
-              <illustrate-spot-tracker></illustrate-spot-tracker>
-              <br>
             </li>
             
             <li>
               <p>
-                <a href="http://christroutner.com:3000/MultipleMaps.html" target="_blank">Collaborative Geo-Data</a> - Similar to the satellite tracking application above, the Geo-Data for this map is stored in a CSV file.
-                However, the two additional Client pages contain forms that allow users to <a href="http://christroutner.com/AddNew.html" target="_blank">create new map markers</a> and update existing map markers.
-                These forms make POST and GET requests to a custom web-service written in JavaScript and running in Node. 
-                These services update the CSV file, allowing for collaborative editing of the database.
+                <a href="http://christroutner.com:3000/MultipleMaps.html" target="_blank">Collaborative Geo-Data</a> - This is a prototype Google 
+                Maps web app that allows users to collaboratively update a common database of geographical data. I had intended to use this 
+                application to allow other boaters to share information about anchorages in remote locations and sources of wild food nearby. 
+                Unfortunately <a href="https://activecaptain.com" target="_blank">Active Captain</a> came up with this idea before me. I decided 
+                to release the code as Open Source under the GNUv2 license.
+                <br>
+                Geo-Data for this map is stored in a CSV file. However, the two additional Client pages contain forms that allow users to 
+                <a href="http://christroutner.com/AddNew.html" target="_blank">create new map</a> markers and update existing map markers. 
+                These forms make POST and GET requests to a custom web-service written in JavaScript and running in Node. These services 
+                update the CSV file, allowing for collaborative editing of the database.
+                <br>
+                The code examples never progressed past the prototyping stage, so it used simple CSV files for data storage. For scalability, a database would normally be used, but CSV is great for small websites and quick prototyping.                
               </p> 
-              <br>
-              <illustrate-geo-data></illustrate-geo-data>
+              <ul><li><a href="https://github.com/christroutner/Collaborative-Geo-Data-v0.1.02/" target="_blank">View GitHub Repository</a></li></ul>
               <br>
             </li>
             
