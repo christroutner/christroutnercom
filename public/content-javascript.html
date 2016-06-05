@@ -146,7 +146,7 @@
         <h2 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" href="#collapseNode" aria-expanded="false" aria-controls="collapseNode">
             <i class='glyphicon glyphicon-plus'></i>
-            Back End: Node.js and Embedded Web Server
+            Back End: Node.js, IoT, and Embedded Web Server
           </a>
         </h2>
       </div>
@@ -214,5 +214,104 @@
         </div>
       </div>
     </div>
+
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseFullStack')">
+      <div class="panel-heading" role="tab" id="headingFullStack">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseFullStack" aria-expanded="false" aria-controls="collapseFullStack">
+            <i class='glyphicon glyphicon-plus'></i>
+            Full Stack Development
+          </a>
+        </h2>
+      </div>
+      <div id="collapseNode" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNode">
+        <div class="panel-body">
+          <p>
+            “Full stack” means a lot of different things to different people. In my mind, JavaScript embodies the idea of ‘full stack’ 
+            the best by creating a common programming language that seamlessly spans between the server and client browser. At a minimum, 
+            a ‘full stack’ application incorporates a database for persisting data, API calls to pass data between the server and 
+            client browser, and a mobile-first user interface running in a client’s web browser. The majority of work I’ve done in 
+            2015 to present has been the development of full stack applications that fit this description. Here are some examples:
+          <p>
+          <br>
+          <ul>
+            <li>
+              <p>
+                <a href="http://connextcms.com" target="_blank">ConnextCMS</a> – One of my first tasks as lead developer at 
+                <a href="http://skagitconnext.com/" target="_blank">Skagit 
+                Connext</a> was to find a free or open source Content Management System (CMS) that was not WordPress. We used 
+                Expression Engine CMS which comes with a $300 licensing fee. It was great for high-end web sites, but we needed 
+                something mobile-friendly, simple, and free for our smaller customers. 
+              </p>
+              <p>
+                I discovered <a href="http://keystonejs.com" target="_blank">KeystoneJS CMS</a>, a Node/Express/MongoDB application. 
+                The core KeystoneJS engine is an elegant design.  However, the Admin UI is written in React.js uses server-side 
+                rendering. This moves the development onto the server, and I felt a better design is to keep the UI development 
+                in the browser. ConnextCMS is a Backbone.js application that mimics the WordPress Admin UI using the 
+                <a href="https://almsaeedstudio.com/preview" target="_blank">AdminLTE Control Panel Bootstrap Template</a>. 
+                Data is exchanged between server and client using a REST API. 
+              </p>
+              <p>
+                As I developed ConnextCMS, I convinced the management to release the code as open source under the MIT license. 
+                We are currently in the process of trying to build momentum and recruit developers from the open source community. 
+                Visit <a href="http://connextcms.com" target="_blank">ConnextCMS.com</a> for more information and a list of features.
+              </p>
+              <ul><li><a href="https://github.com/skagitpublishing/ConnextCMS" target="_blank">View GitHub Repository</a></li></ul>
+              <br>
+            </li>
+            <br>
+            <li>
+              <p>
+                <a href="http://pioneer-rtb.com/" target="_blank">Pioneer RTB</a> – This is an extremely complex web form on par with 
+                the kind of forms/web apps used by <a href="https://turbotax.intuit.com/" target="_blank">TurboTax</a> 
+                or <a href="http://www.mycorporation.com/" target="_blank">MyCorporation</a>. This form is used internally by 
+                Pioneer News Group to place orders for online advertising. The code is not publically available. The form 
+                runs on top of <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>, similar to 
+                <a href="http://connextcms.com" target="_blank">ConnextCMS</a>. It has some of the following features:
+              </p>
+              <ul>
+                <li>
+                  Data is saved in real time as the form is filled out. 
+                </li>
+                <li>
+                  If an error occurs due to browser or OS incompatibility, a log file is emailed to the administrator. 
+                </li>
+                <li>
+                  Image and video uploads are validated against size and dimension constraints prior to upload.
+                </li>
+                <li>
+                  Using jQuery animation, a slide-out contextual-help screen automatically scrolls to the help you need based on your location within the form.
+                </li>
+                <li>
+                  Various parts of the form are hidden or shown based on decisions made higher up in the form. 
+                </li>
+                <li>
+                  Old orders have the ability to be cloned and reordered with a couple clicks. Unfinished orders can be saved and resumed at a later date. Reminder emails automatically get sent on a weekly basis to people with unsubmitted orders.
+                </li>
+              </ul> 
+              
+              <br>
+            </li>
+            <br>
+            <li>
+              <p>
+                RPi-Tracker & RPiOVN.com – <a href="http://rpiovn.com/" target="_blank">RPi OVN</a> is an 
+                <a href="http://rpiovn.com/blog/post/what-is-an-open-value-network" target="_blank">Open Value Network</a> that I created 
+                after working with the developers of the <a href="https://github.com/valnet/valuenetwork" target="_blank">Network Resource Planning (NRP)</a> 
+                accounting software used by <a href="http://www.sensorica.co/" target="_blank">Sensorica</a>. The easiest way to think about 
+                it is a co-op for Raspberry Pi programmers to develop products together and share in the profits. It’s an experiment. 
+              </p>
+              <p>
+                The first product RPiOVN will be launching in the <a href="http://rpiovn.com/page/rpi-tracking-device" target="_blank">RPi-Tracker</a>. It’s simply a USB GPS hooked up to Raspberry Pi, but everything is controlled via a Node/Express.js app, and the user interface is simple web page using Bootstrap and jQuery. The Raspberry Pi can be switched between a Wifi Client and Access Point modes, allowing communication and control directly from a cell phone over WiFi. Data can easily be downloaded and uploaded to Google Maps. The intended audience is boaters and RVers who want a cheap, dedicated tracking device for sharing their travels.
+              </p>
+              <ul><li><a href="https://github.com/christroutner/RPi-Tracker" target="_blank">View GitHub Repository</a></li></ul>
+            </li>
+            
+          </ul>
+          <br>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
