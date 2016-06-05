@@ -111,7 +111,7 @@
                     listed below are still present in the current version, but I've taken them out of Angular and implemented them with jQuery
                     calls and <a href="http://christroutner.com/js/site.js" target="_blank">frameworkless code</a>:
                   <ul>
-                    <li>The content sections have been modularized into separate files using Angular Directives.</li>
+                    <li>The content sections have been modularized into separate files using Angular Directives.<br></li>
                     <li>The collapsing panels that make up this website are native to Bootstrap, but the animation of the '+' and '-' signs is custom code 
                       attached to panel elements with another custom Angular Directive.</li>
                   </ul> 
@@ -201,12 +201,14 @@
                 application to allow other boaters to share information about anchorages in remote locations and sources of wild food nearby. 
                 Unfortunately <a href="https://activecaptain.com" target="_blank">Active Captain</a> came up with this idea before me. I decided 
                 to release the code as Open Source under the GNUv2 license.
-                <br>
+              </p>
+              <p>
                 Geo-Data for this map is stored in a CSV file. However, the two additional Client pages contain forms that allow users to 
                 <a href="http://christroutner.com/AddNew.html" target="_blank">create new map</a> markers and update existing map markers. 
                 These forms make POST and GET requests to a custom web-service written in JavaScript and running in Node. These services 
                 update the CSV file, allowing for collaborative editing of the database.
-                <br>
+              </p>
+              <p>
                 The code examples never progressed past the prototyping stage, so it used simple CSV files for data storage. For scalability, a database would normally be used, but CSV is great for small websites and quick prototyping.                
               </p> 
               <ul><li><a href="https://github.com/christroutner/Collaborative-Geo-Data-v0.1.02/" target="_blank">View GitHub Repository</a></li></ul>
