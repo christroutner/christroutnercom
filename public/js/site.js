@@ -47,7 +47,7 @@ $.fn.scrollView = function () {
 
 //Initialize the glyphicon + and - signs on collapsable panels.
 // id = a string with the id of a DOM element. e.x. '#colapseAbout'
-var initCollapseIcon = function (id) {
+var initCollapseIcon = function (id) { 
 //this.initCollapseIcon = function(id) { //Angular code
 
   //debugger;
