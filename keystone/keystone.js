@@ -38,7 +38,7 @@ keystone.init({
   'auth': true,
   'user model': 'User',
   'file limit': '50MB',
-  'mongo': 'mongodb://172.17.0.1:3500/christroutnercom'
+  'mongo': 'mongodb://172.17.0.1:3501/christroutnercom'
 });
 
 // Load your project's Models
