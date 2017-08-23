@@ -15,9 +15,7 @@ $(document).ready(function ( ) {
 
   $('#mainp').text('This text is animated!');
   $('#mainp').slideUp('slow');
-
-  
-  debugger;   
+ 
   
   //Initialize the animation of  + & - glyphicons to indicate the collapse state of each panel.
   initCollapseIcon($('#collapseAbout'));
