@@ -17,30 +17,98 @@
   </p>
   
   <div class="panel-group" id="panelJavaScript" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseTesting')">
-      <div class="panel-heading" role="tab" id="headingTesting">
+    
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseFullStack')">
+      <div class="panel-heading" role="tab" id="headingFullStack">
         <h2 class="panel-title">
-          <a role="button" data-toggle="collapse" href="#collapseTesting" aria-expanded="false" aria-controls="collapseTesting">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseFullStack" aria-expanded="false" aria-controls="collapseFullStack">
             <i class='glyphicon glyphicon-plus'></i>
-            Testing and Automation
+            Full Stack Development
           </a>
         </h2>
       </div>
-      <div id="collapseTesting" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTesting">
+      <div id="collapseFullStack" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFullStack">
         <div class="panel-body">
-          <p>At Xerox I wrote test scripts in JavaScript that would run functional tests on the circuit board sub-components of their printer products. As the
-            circuit boards would reach the end of the assembly line, prior to final assembly, they would be put into a test fixture. A bed of needles would be
-            lowered onto the circuit board and connect it to a computer on the test fixture. I designed the interface hardware, programmed the embedded microcontrollers in C++, and wrote the
-            functional testing software on the computer in JavaScript. The software would put the circuit board through its paces and catalog any unexpected
-            behavior. Tests were prioritized and results uploaded to a database on a central server for data mining. These fixtures were essential for Xerox's six-sigma
-            management strategy and warranty insurance research.</p><br>
-
-            <p>My position at Integra was as a software tester. About half my job was manual testing and the other half I spent on maintaining their suite
-            of automated testing scripts, written in JavaScript. During my time there, I added dozens of test cases, made several improvements to the utility
-            libraries, and assisted in the design and build out of a Build Verification Test (BVT) program that automated the testing of the nightly build.</p>
+          <p>
+            “Full stack” means a lot of different things to different people. In my mind, JavaScript embodies the idea of ‘full stack’ 
+            the best by creating a common programming language that seamlessly spans between the server and browser. At a minimum, 
+            a ‘full stack’ application incorporates a database for persisting data, API calls to pass data between the server and 
+            client browser, and a mobile-first user interface running in a client’s web browser. 
+            I've worked almost exclusively on full stack application since the beginning of 2015. Here are some examples:
+          <p>
+          <br>
+          <ul>
+            <li>
+              <img src="/images/skagit-connext-logo-gold.png" class="img-responsive pull-left" style="max-width: 300px;" />
+              <p>
+                <a href="http://connextcms.com" target="_blank">ConnextCMS</a> – One of my first tasks as lead developer at 
+                <a href="http://skagitconnext.com/" target="_blank">Skagit 
+                Connext</a> was to find a free or open source Content Management System (CMS) that was not WordPress. We used 
+                Expression Engine CMS which comes with a $300 licensing fee. It was great for high-end web sites, but we needed 
+                something mobile-friendly, simple, and <i>free</i> for our smaller customers. 
+              </p>
+              <p>
+                I discovered <a href="http://keystonejs.com" target="_blank">KeystoneJS CMS</a>, a Node/Express/MongoDB application. 
+                The core KeystoneJS engine is an elegant design.  However, the Admin UI is written in React.js uses server-side 
+                rendering. This moves the development onto the server, and I felt a better design is to keep the UI development 
+                in the browser. ConnextCMS is a Backbone.js application that mimics the WordPress Admin UI using the 
+                <a href="https://almsaeedstudio.com/preview" target="_blank">AdminLTE Control Panel Bootstrap Template</a>. 
+                Data is exchanged between server and client using a REST API. 
+              </p>
+              <p>
+                As I developed ConnextCMS, I convinced the management to release the code as open source under the MIT license. 
+                We are currently in the process of trying to build momentum and recruit developers from the open source community. 
+                Visit <a href="http://connextcms.com" target="_blank">ConnextCMS.com</a> for more information and a list of features.
+              </p>
+              <ul><li><a href="https://github.com/skagitpublishing/ConnextCMS" target="_blank">View GitHub Repository</a></li></ul>
+              <br>
+            </li>
+            <br>
+            <li>
+              <p>
+                <a href="http://pioneer-rtb.com/" target="_blank">Pioneer RTB</a> – This is an extremely complex web form on par with 
+                the kind of forms/web apps used by <a href="https://turbotax.intuit.com/" target="_blank">TurboTax</a> 
+                or <a href="http://www.mycorporation.com/" target="_blank">MyCorporation</a>. This form is used internally by 
+                Pioneer News Group to place orders for online advertising. The code is not publically available. The form 
+                runs on top of <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>, similar to 
+                <a href="http://connextcms.com" target="_blank">ConnextCMS</a>. It has some of the following features:
+              </p>
+              <ul>
+                <li>
+                  Data is saved in real time as the form is filled out. 
+                </li>
+                <br>
+                <li>
+                  If an error occurs due to browser or OS incompatibility, a log file is emailed to the administrator. 
+                </li>
+                <br>
+                <li>
+                  Image and video uploads are validated against size and dimension constraints prior to upload.
+                </li>
+                <br>
+                <li>
+                  Using jQuery animation, a slide-out contextual-help screen automatically scrolls to the help you need based on your location within the form.
+                </li>
+                <br>
+                <li>
+                  Various parts of the form are hidden or shown based on decisions made higher up in the form. 
+                </li>
+                <br>
+                <li>
+                  Old orders have the ability to be cloned and reordered with a couple clicks. Unfinished orders can be saved and resumed at a later date. Reminder emails automatically get sent on a weekly basis to people with unsubmitted orders.
+                </li>
+              </ul> 
+              
+              <br>
+            </li>
+            <br>
+            
+          </ul>
+          <br>
         </div>
       </div>
     </div>
+    
     <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapsejQuery')">
       <div class="panel-heading" role="tab" id="headingjQuery">
         <h2 class="panel-title">
@@ -153,6 +221,7 @@
         </div>
       </div>
     </div>
+
     <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseNode')">
       <div class="panel-heading" role="tab" id="headingNode">
         <h2 class="panel-title">
@@ -227,95 +296,32 @@
       </div>
     </div>
 
-    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseFullStack')">
-      <div class="panel-heading" role="tab" id="headingFullStack">
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseTesting')">
+      <div class="panel-heading" role="tab" id="headingTesting">
         <h2 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseFullStack" aria-expanded="false" aria-controls="collapseFullStack">
+          <a role="button" data-toggle="collapse" href="#collapseTesting" aria-expanded="false" aria-controls="collapseTesting">
             <i class='glyphicon glyphicon-plus'></i>
-            Full Stack Development
+            Testing and Automation
           </a>
         </h2>
       </div>
-      <div id="collapseFullStack" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFullStack">
+      <div id="collapseTesting" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTesting">
         <div class="panel-body">
-          <p>
-            “Full stack” means a lot of different things to different people. In my mind, JavaScript embodies the idea of ‘full stack’ 
-            the best by creating a common programming language that seamlessly spans between the server and client browser. At a minimum, 
-            a ‘full stack’ application incorporates a database for persisting data, API calls to pass data between the server and 
-            client browser, and a mobile-first user interface running in a client’s web browser. The majority of work I’ve done in 
-            2015 to present has been the development of full stack applications that fit this description. Here are some examples:
-          <p>
-          <br>
-          <ul>
-            <li>
-              <p>
-                <a href="http://connextcms.com" target="_blank">ConnextCMS</a> – One of my first tasks as lead developer at 
-                <a href="http://skagitconnext.com/" target="_blank">Skagit 
-                Connext</a> was to find a free or open source Content Management System (CMS) that was not WordPress. We used 
-                Expression Engine CMS which comes with a $300 licensing fee. It was great for high-end web sites, but we needed 
-                something mobile-friendly, simple, and <i>free</i> for our smaller customers. 
-              </p>
-              <p>
-                I discovered <a href="http://keystonejs.com" target="_blank">KeystoneJS CMS</a>, a Node/Express/MongoDB application. 
-                The core KeystoneJS engine is an elegant design.  However, the Admin UI is written in React.js uses server-side 
-                rendering. This moves the development onto the server, and I felt a better design is to keep the UI development 
-                in the browser. ConnextCMS is a Backbone.js application that mimics the WordPress Admin UI using the 
-                <a href="https://almsaeedstudio.com/preview" target="_blank">AdminLTE Control Panel Bootstrap Template</a>. 
-                Data is exchanged between server and client using a REST API. 
-              </p>
-              <p>
-                As I developed ConnextCMS, I convinced the management to release the code as open source under the MIT license. 
-                We are currently in the process of trying to build momentum and recruit developers from the open source community. 
-                Visit <a href="http://connextcms.com" target="_blank">ConnextCMS.com</a> for more information and a list of features.
-              </p>
-              <ul><li><a href="https://github.com/skagitpublishing/ConnextCMS" target="_blank">View GitHub Repository</a></li></ul>
-              <br>
-            </li>
-            <br>
-            <li>
-              <p>
-                <a href="http://pioneer-rtb.com/" target="_blank">Pioneer RTB</a> – This is an extremely complex web form on par with 
-                the kind of forms/web apps used by <a href="https://turbotax.intuit.com/" target="_blank">TurboTax</a> 
-                or <a href="http://www.mycorporation.com/" target="_blank">MyCorporation</a>. This form is used internally by 
-                Pioneer News Group to place orders for online advertising. The code is not publically available. The form 
-                runs on top of <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>, similar to 
-                <a href="http://connextcms.com" target="_blank">ConnextCMS</a>. It has some of the following features:
-              </p>
-              <ul>
-                <li>
-                  Data is saved in real time as the form is filled out. 
-                </li>
-                <br>
-                <li>
-                  If an error occurs due to browser or OS incompatibility, a log file is emailed to the administrator. 
-                </li>
-                <br>
-                <li>
-                  Image and video uploads are validated against size and dimension constraints prior to upload.
-                </li>
-                <br>
-                <li>
-                  Using jQuery animation, a slide-out contextual-help screen automatically scrolls to the help you need based on your location within the form.
-                </li>
-                <br>
-                <li>
-                  Various parts of the form are hidden or shown based on decisions made higher up in the form. 
-                </li>
-                <br>
-                <li>
-                  Old orders have the ability to be cloned and reordered with a couple clicks. Unfinished orders can be saved and resumed at a later date. Reminder emails automatically get sent on a weekly basis to people with unsubmitted orders.
-                </li>
-              </ul> 
-              
-              <br>
-            </li>
-            <br>
-            
-          </ul>
-          <br>
+          <p>At Xerox I wrote test scripts in JavaScript that would run functional tests on the circuit board sub-components of their printer products. As the
+            circuit boards would reach the end of the assembly line, prior to final assembly, they would be put into a test fixture. A bed of needles would be
+            lowered onto the circuit board and connect it to a computer on the test fixture. I designed the interface hardware, programmed the embedded microcontrollers in C++, and wrote the
+            functional testing software on the computer in JavaScript. The software would put the circuit board through its paces and catalog any unexpected
+            behavior. Tests were prioritized and results uploaded to a database on a central server for data mining. These fixtures were essential for Xerox's six-sigma
+            management strategy and warranty insurance research.</p><br>
+
+            <p>My position at Integra was as a software tester. About half my job was manual testing and the other half I spent on maintaining their suite
+            of automated testing scripts, written in JavaScript. During my time there, I added dozens of test cases, made several improvements to the utility
+            libraries, and assisted in the design and build out of a Build Verification Test (BVT) program that automated the testing of the nightly build.</p>
         </div>
       </div>
     </div>
+
+    
 
   </div>
 </section>
