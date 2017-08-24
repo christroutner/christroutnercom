@@ -69,3 +69,8 @@ p {
   */
 }
 
+@media(min-width: 768) {
+  .xs-no-bullet {
+    list-style: none;
+  }
+}
