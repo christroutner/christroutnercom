@@ -8,6 +8,18 @@ body{
   //position needed to use Scrollspy
   position: relative;
 }
+/* dynamically resize font, based on screen size*/
+@media(min-width: 800px) {
+  body {
+    font-size: 20px;  
+  }
+}
+@media(min-width: 1200px) {
+  body {
+    font-size: 22px;
+  }
+}
+
 h1{
 	font-size: 40px;
 	padding-bottom: 15px;
