@@ -184,7 +184,7 @@
         <h2 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" href="#collapsejQuery" aria-expanded="false" aria-controls="collapsejQuery">
             <i class='glyphicon glyphicon-plus'></i>
-            Front End: jQuery, AJAX, and Google Maps
+            Front End Development
           </a>
         </h2>
       </div>
@@ -193,9 +193,9 @@
           
           <p>
             This section showcases examples of my front end work. These days, every front end project I build is based on 
-            <a href="http://getbootstrap.com" target="_blank">Twitter’s Bootstrap framework</a>. In the last few months, 
-            I’ve been borrowing heavily from the open source <a href="https://almsaeedstudio.com/preview" target="_blank">AdminLTE Template</a>, 
-            also based on Bootstrap. 
+            the <a href="http://getbootstrap.com" target="_blank">Bootstrap framework</a>. Whenever a dashboard is called for,
+            my borrow heavily from the open source <a href="https://almsaeedstudio.com/preview" target="_blank">AdminLTE Template</a>, 
+            also based on Bootstrap. I also have experience with several JavaScript frameworks, as explained below.
           </p>
           <p>
             In its present state, this site runs on top of the <a href="http://keystonejs.com/" target="_blank">KeystoneJS CMS</a> 
@@ -208,6 +208,61 @@
           </p>
           <br>
           <ul>
+            <li>
+              <h3>Backbone.js & Require.js</h3>
+              <p>
+                All the apps I've listed under <a href="#collapseFullStack">Full Stack Development</a> have been 
+                based on Bootstrap.js. I also
+                modularize my projects with Require.js. When collaborating on projects, I frequently reference
+                <a href="https://addyosmani.com/backbone-fundamentals/" target="_blank">this open source book
+                by O'Reily media.</a> It's concise, freely available, and helps other developers
+                access the knowledge they need to copy the code I've developed and released as open source.
+              </p>
+              <p>
+                Although Backone.js is no longer as in-vogue as React.js or Angular.js, I firmly believe that
+                it is the superior framework due to its small download size, unopinionated architecture, and
+                maturity. Backbone.js was battle tested and code mature before Angular or React appears on the
+                scene. I believe these factors make it the lowest business risk for any organization, and
+                I can do anythign with this framework that can be done with the others.
+              </p>
+            </li>
+            <br>
+            
+            <li>
+              <h3>Angular.js</h3>
+              <p>
+                <a href="https://angularjs.org/" target="_blank">Angular.js</a> is a front end framework competing with 
+                <a href="http://backbonejs.org/" target="_blank">Backbone.js</a>. I've since gravitated towards Backbone.js, but the 
+                examples below show the extent of the dabbling I've done with this framework. 
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    <b><a href="http://christroutner.com/ct-v1.2/" target="_blank">v2 Of This Site!</a></b> - This is an earlier version of this site that uses the Twitter Bootstrap framework accentuated with custom JavaScript code sprinkled throughout the HTML using the Angular.js
+                    framework. The Angular code can be found in <a href="http://christroutner.com/ct-v1.2/js/app.js" target="_blank">this file</a>. All the features
+                    listed below are still present in the current version, but I've taken them out of Angular and implemented them with jQuery
+                    calls and <a href="http://christroutner.com/js/site.js" target="_blank">frameworkless code</a>:
+                  </p>
+                  <ul>
+                    <li>The content sections have been modularized into separate files using Angular Directives.</li>
+                    <br>
+                    <li>
+                      The collapsing panels that make up this website are native to Bootstrap, but the animation of the '+' and '-' signs is custom code 
+                      attached to panel elements with another custom Angular Directive.
+                    </li>
+                    <br>
+                  </ul> 
+                  <p>
+                   All the code used on this site is freely available without restriction and can be downloaded via GitHub.
+                  </p>
+                  <ul><li><a href="https://github.com/christroutner/ct-v1.2" target="_blank">View GitHub Repository</a></li></ul>
+                </li>
+                <br>
+                
+              </ul>
+            </li>
+            <br>
+            
             <li>
               <h3>Google Maps API</h3>
               <p>
@@ -246,46 +301,6 @@
               </ul>
             </li>
             
-            <li>
-              <h3>Angular.js</h3>
-              <p>
-                <a href="https://angularjs.org/" target="_blank">Angular.js</a> is a front end framework competing with 
-                <a href="http://backbonejs.org/" target="_blank">Backbone.js</a>. I've since gravitated towards Backbone.js, but the 
-                examples below show the extent of the dabbling I've done with this framework. 
-              </p>
-              <ul>
-                <li>
-                  <p>
-                  <b><a href="http://christroutner.com/ct-v1.2/" target="_blank">v2 Of This Site!</a></b> - This is an earlier version of this site that uses the Twitter Bootstrap framework accentuated with custom JavaScript code sprinkled throughout the HTML using the Angular.js
-                  framework. The Angular code can be found in <a href="http://christroutner.com/ct-v1.2/js/app.js" target="_blank">this file</a>. All the features
-                    listed below are still present in the current version, but I've taken them out of Angular and implemented them with jQuery
-                    calls and <a href="http://christroutner.com/js/site.js" target="_blank">frameworkless code</a>:
-                  <ul>
-                    <li>The content sections have been modularized into separate files using Angular Directives.</li>
-                    <br>
-                    <li>The collapsing panels that make up this website are native to Bootstrap, but the animation of the '+' and '-' signs is custom code 
-                      attached to panel elements with another custom Angular Directive.</li>
-                    <br>
-                  </ul> 
-                   All the code used on this site is freely available without restriction and can be downloaded via GitHub.
-                  </p>
-                </li>
-                <ul><li><a href="https://github.com/christroutner/ct-v1.2" target="_blank">View GitHub Repository</a></li></ul>
-                
-              </ul>
-            </li>
-            <br>
-            <li>
-              <h3>Misc Front End Examples</h3>
-              <ul>
-                <li>
-                  <a href="StockChart.html" target="_blank">30-Day Stock Chart</a> - The amChart library allows easy creation of stock charts and contains other data visualization tools. This
-                  is an example I wrote for myself. It downloads the last 30 days of stock data from the Yahoo! Finance server, processes the data,
-                  and configures an amChart to display the data. The amChart libraries are great for creating beautiful data visualizations on a web page.              
-                  
-                </li>
-              </ul>
-            </li>
           </ul>
           
         </div>
