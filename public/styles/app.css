@@ -70,9 +70,9 @@ p {
 }
 
 .xs-no-bullet {
-  list-style: armenian;
+  
 }
-@media(min-width: 768) {
+@media(min-width: 768px) {
   .xs-no-bullet {
     list-style: none;
   }
