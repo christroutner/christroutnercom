@@ -1,0 +1,239 @@
+<section>
+  <p>Throughout my college and early career, I worked extensively with embedded software and hardware. This started with a love of robots, of which I built several. In college I was obsessed with starting my own robotics company. I spent every spare moment between classes and homework to work on the business plan and prototypes for my companies products (the Mini-PC, MDRV4, and WMS). Sadly, the business never got off the ground. In the spring of 2004 I teamed up with a mechanical engineering friend to build a robot for the PDXBot.05 Mini-Sumo Competition. Our robot, Superlative, won first place. Most of this embedded development took place on the AVR family of microcontrollers. I developed an extensive AVR C-code library to control a wide range of embedded hardware.</p>
+
+  <p>I graduated with a 3.15 GPA from Oregon State in the summer of 2007. In my last two years, my passion for robotics led me to focus my studies in the fields of Digital Signal Processing (DSP) and Control Systems. Both of these fields are essential to developing embedded systems. DSP is largely concerned with reading analog sensors and Control Systems is largely concerned with doing something with that information - like controlling the motors on a robot. I excelled in the field on Control Systems and followed this path to begin focusing on Neural Networks and other forms of computer learning. For my senior project, I joined a team that developed the first successful <a href="#tractioncontrol">off-road traction control system</a> which helped us place 2nd in the off-road SAE Mini-Baja competition against 70 other universities. I also created and modelled a simple <a href="#solarwaterheater">Solar Water Heater controller</a> for my Control Systems class, earning me an A.</p> 
+
+  <p>Throughout my career, I have contributed to several Open Source Projects, and have recently become fascinated with the potential applications using the <a href="https://www.sparkfun.com/products/12994" target="_blank">Raspberry Pi</a> as an embedded web server.</p>
+
+  <div class="panel-group" id="panelEmbedded" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseTractionControl')">
+      <div class="panel-heading" role="tab" id="headingTractionControl">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" href="#collapseTractionControl" aria-expanded="false" aria-controls="collapseTractionControl">
+            <i class='glyphicon glyphicon-plus'></i>
+            Off-Road Traction Control System
+          </a>
+        </h2>
+      </div>
+      <div id="collapseTractionControl" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTractionControl">
+        <div class="panel-body">
+          <img src="./images/MiniBajaCar.JPG" class='img-responsive center-block'>
+
+          <p>For my senior design project, my team designed an Electronic Traction Control (ETC) System for the Society of Automotive Engineers (SAE) Mini-Baja car. My partner (Dave Karo, Mechanical Engineer) and I, led a team of 6 other engineers to design and implement the first ever functional ETC. As a result, our car <a href="./files/Baja_SAE_2007.pdf">placed 2nd</a> in the 2007 SAE Mini-Baja West competition against 70 other competing universities, 7 of which were from outside the US.</p>
+
+          <p>Our ETC System was implemented on OSU's 2006 car. This car had been designed with an open differential transmission. One of the limitations of an open differential is that when one wheel loses traction, it steals power from the wheel with traction. The main event in the Mini-Baja competition is a 4-hour off-road endurance race. Simulations showed that the car could perform much better if it could maintain better traction.</p>
+
+          <p>The heart of the ETC is simple: when one wheel loses traction, apply a braking force, which will transfer motor power to the wheel with traction. Implementing this idea is not so simple. Our specifications were to be able to apply a breaking force of up to 1000 psi to a tire within 10 milliseconds. Additionally, our system had to be designed for an extremely harsh environment as the cars are completely covered with about 2 inches of dried mud by the end of the race.</p>
+
+          <p>Dave and I shared leadership of the design team. He designed and implemented all mechanical aspects of the system while I designed and implemented all the <a href="./files/ETC_control_board.pdf">electrical hardware</a>. Additionally, I <a href="./files/software_roadmap.pdf">designed the firmware specification</a> which the other engineers implemented. We all worked together to debug the system until it was perfect. This was my first experience leading a team of engineers. It was simultaneously the most fun, frustrating, and educational experience of my college career.</p>
+
+          <p>For demonstration purposes, <a href="./images/First%20Test%20Dish%20soap%20on%20plywood.JPG">we applied dish soap to a laminated plywood board</a>. We then took a video of the car's performance <a href="./files/ETC_Off.AVI">with the ETC off (video)</a> and another <a href="./files/ETC_On.AVI">with the ETC on (video)</a>. You can also see a close up of <a href="./files/ETC_Test_on_jack_stand_3-11-07.AVI">the ETC with the car on a jack stand (video)</a>.</p>
+
+          <img src="./images/BajaTeam.jpg" class='img-responsive center-block'>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseWaterHeater')">
+      <div class="panel-heading" role="tab" id="headingWaterHeater">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseWaterHeater" aria-expanded="false" aria-controls="collapseWaterHeater">
+            <i class='glyphicon glyphicon-plus'></i>
+            Solar Water Heater Controller
+          </a>
+        </h2>
+      </div>
+      <div id="collapseWaterHeater" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWaterHeater">
+        <div class="panel-body">
+          <img src="./images/solar_1.jpg" class='img-responsive center-block'>
+
+          <p>The solar water heater is a project I designed for one of my senior courses, ME414 - Mechatronics, at OSU. The idea for the project was originated by one of my group members and I chose to join the group as the idea sounded like a great chance explore a feasible alternative energy source. I teamed up with two mechanical engineers for this project. They built the physical prototype while I designed the control system, circuitry, software, and simulation.</p>
+
+          <p>You can see a <a href="./files/solar_water_heater_presentation.pdf">summary presentation</a> I gave at the end of the term on our results. Using an un-insulated, 30-gallon garbage can as our 'thermal reservoir' and a 'thermal collector' pictured above - composed of copper foil and tubing painted black, our prototype was able to heat the 30-gallon tank to a  temperature of 120º Fahrenheit on an early spring day, slightly cloudy, with an ambient temperature in the low 70º's.</p>
+
+          <p>From analyzing the thermal equations governing this system, I was able to create electrical circuit elements that were mathematically analogous to the system. Slide 4 shows these mathematical equivalencies. From there, I was able to schematically represent our system as a collection of simple circuit components. This in turn allowed me to generate the corresponding transfer function that governed the uncompensated system. This is displayed on slide 5.</p>
+
+          <p>Slide 6 and 7 shows the schematics for the different sensors used in the system. Three temperature sensors were used to track the collector, tank, and ambient temperatures, respectively. A photoresistor, used as a light sensor, was designed and calibrated so that I could track the amount of thermal energy entering the collector as sun-light. As the system ran continuously, day and night, the amount of energy entering the collector varied widely. Clouds passing under the sun would greatly reduce the energy as well. Without this sensor, there would have been no way to compare the actual system to the theoretical model. Slide 7 shows a graph the function used to model the sensor. The red stars represent the data points used to generate the modeling function (blue line).</p>
+
+          <p>Slide 9 shows the closed loop control system used to operate the solar heater. Essentially, the system makes use of a bang-bang controller with hysteresis. If the temperature in the collector was higher than in the tank, the pump would turn on. Otherwise, the pump would be off. This simple control system proved to be the most efficient in removing thermal energy from the collector and putting it into the tank.</p>
+
+          <p><b>Slide 10 is the most important slide.</b> On the top left hand side is data that was logged over a 7-hour period with a laptop. The right hand side is the simulated system based on the theoretical model (shown on slide 5). The energy into the system is displayed as power in the lower graphs. This is used as the input to the simulated system. <u>Looking at the top two graphs, it can be seen that the simulated system tracks the actual system almost perfectly</u>. After about four hours, the blue line in the upper left graph (representing the temperature of the water in the thermal collector) drops off much faster than the simulated one on the right. This is due to the sun setting and the ambient temperature dropping off rapidly. In the simulated system, ambient temperature (analogous to 'ground' voltage) is assumed constant, but this is not the case in reality. The tank temperature is not as effected by this as it has several more orders of magnitude of thermal capacitance compared to the collector - i.e. the amount of water in the tank is much, much greater than the amount of water in the collector.</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseAVR')">
+      <div class="panel-heading" role="tab" id="headingAVR">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseAVR" aria-expanded="false" aria-controls="collapseAVR">
+            <i class='glyphicon glyphicon-plus'></i>
+            AVR C-Code
+          </a>
+        </h2>
+      </div>
+      <div id="collapseAVR" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAVR">
+        <div class="panel-body">
+          <p>During the development of my various robots and products laid out in my <a href="./files/myrobot_bplan.pdf">business plan</a>, I developed an extensive library of C code for use on the AVR brand of microcontrollers. The libraries are split up based on the various peripherals inside the AVR and common circuit elements that I controlled with the microcontroller. The code below serves as an example of my work in the C software language and is also freely available for AVR developers under the Creative Commons 3.0 license.</p>
+          <ul>
+          <li><a href="./files/software/uC/adc_example.pdf">Analog to Digital Converter</a></li>
+          <li><a href="./files/software/uC/rtc.pdf">Real Time Clock</a></li>
+          <li><a href="./files/software/uC/buz_example.pdf">Buzzer Control</a></li>
+          <li><a href="./files/software/uC/lcd_example.pdf">LCD Control</a></li>
+          <li><a href="./files/software/uC/led_but.pdf">LEDs and Switch Control</a></li>
+          <li><a href="./files/software/uC/mtrsp.pdf">Motor Speed Controller</a></li>
+          <li><a href="./files/software/uC/sram.pdf">External SRAM Interface</a></li>
+          <li><a href="./files/software/uC/twi.pdf">I2C (TWI) Communication</a></li>
+          <li><a href="./files/software/uC/pinread.pdf">Pin Read (debouncer)</a></li>
+          </u>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseRobots')">
+      <div class="panel-heading" role="tab" id="headingRobots">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseRobots" aria-expanded="false" aria-controls="collapseRobots">
+            <i class='glyphicon glyphicon-plus'></i>
+            Robots
+          </a>
+        </h2>
+      </div>
+      <div id="collapseRobots" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRobots">
+        <div class="panel-body">
+          
+          <p>This section contains details on the robots I build during college. Superlative was the name of my most complex robot, built in 2004 in partnership with a Mechnical Engineer friend of mine. It was built to compete in the 2005 PDXBot Mini-Sumo Competition hosted by <a href="http://www.portlandrobotics.org/">Portland Area Robotics Society</a>. It won first place. The Model-T and Mini-T were two prototype kit robots I built when trying launch my own business (<a href="./files/myrobot_bplan.pdf">business plan</a>).</p>
+
+          <div class="panel-group" id="panelRobots2" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseSuperlative')">
+              <div class="panel-heading" role="tab" id="headingSuperlative">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" href="#collapseSuperlative" aria-expanded="false" aria-controls="collapseSuperlative">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Superlative
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseSuperlative" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSuperlative">
+                <div class="panel-body">
+                  <img src="./images/superlative/superlative.gif" class='img-responsive center-block'>
+
+                  <p>To date, Superlative has definitely been my most complex and successful robot. My colleague, Trenton Carpenter, and I built it over the course of two months for the <a href="http://www.portlandrobotics.org/">PDXBot 2005 Mini-Sumo competition</a>. Most people spend a whole year building their robot, so we knew we were starting at a disadvantage. We spent every spare moment we could find working on the robot. It all paid off though. By pooling all my years of electronics experience, his amazing mechanical engineering skills, and a whole lot of effort, we won first place.</p>
+
+                  <p>Superlative uses all three of the products I developed for my company. The Mini-PC mounted on top is the controlling 'brain'. All the control code was written in C, which thanks to the awesome AVR architecture compiled very efficiently. On <a href="./images/superlative/back_view.gif">the back</a> was mounted one of my last prototypes of the MDRV4 which allowed the Mini-PC to drive the two independent, geared DC motors. Mounted inside the chasse was a WMS (Wheel Monitoring System) prototype for speed control and dead reckoning. From <a href="./images/superlative/side_view.gif">the side</a>, you can see the alternating black and white stripes the WMS uses for tracking.</p>
+
+                  <p>On the front was mounted one SRF-08 Sonar Distance sensor and two GP2D120 IR (Infra-red) Distance Sensors. The SRF-08 was controlled via the Mini-PC by I2C protocol and allowed for long range distance sensing. The two GP2D120s allowed for short range distance sensing and enemy tracking. Four IR edge detectors, each composed of an IR LED and phototransistor, were mounted at each corner of the robot to detect the edge of the ring. You lose the match if your robot leaves or is pushed out of the ring. The detectors provided an analog voltage that changed proportional to the reflectivity of the ring. I had to design and build the circuitry to translate the analog voltage into a binary Detect/No Detect signal for the Mini-PC to interpret.</p>
+
+                  <p>No matter how sophisticated the circuitry and software, Mini-Sumo is really a big shoving match. Trenton hand machined the Magnesium-Aluminum wheels and added a grummled surface on the inside of the rim for maximum traction. We then found a recipe to make our own polyurethane tracks. The benefit to using polyurethane is that it provided the most traction out of any material we could find. However, the rubber is also very stretchy - which is the reason why I'd never seen anyone use them for tracks (They would roll off). To combat this problem, we came up with the idea to stick carbon fiber strings to the mold during casting. The result was maximum traction with no stretch. Originally, the motors we used were very powerful, but very slow. Trenton also re-machined the gear box and casing for each motor to maximize torque and speed while minimizing as much weight as possible. The weight limit for a Mini-Sumo robot is 500 grams. Superlative weighed in at 498 grams.<p>
+
+                  <p class="text-center"><a href="./images/superlative/sup_video.AVI">Watch a video of Superlative in Action!</a></p>
+
+                  <img src="./images/superlative/superlative_diag.gif" class='img-responsive center-block'>
+
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseModelt')">
+              <div class="panel-heading" role="tab" id="headingModelt">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" href="#collapseModelt" aria-expanded="false" aria-controls="collapseModelt">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Model-T
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseModelt" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingModelt">
+                <div class="panel-body">
+                  <img src="./images/botshot6_small.gif" class='img-responsive center-block'>
+
+                  <p>The Model-T was my first prototype robot for MyRobot. It uses rubber tank treads driven by a dual gear box - both provided by Japanese hobby company Tamiya. An early prototype of my Mini-PC can be seen mounted on top of the bot. A Sharp GP2D120 IR (Infra-red) Distance Sensor is used for collision avoidance. The mechanical based is characterized by the following features:</p>
+
+                  <ul>
+                  <li>2 High-Traction Tank Treads, 15" in Circumference - Allows It to Move on Any Surface - Even Outdoors!</li>
+                  <li>2 Separate Geared DC Motors - Allows For Differential Steering of Each Track.</li>
+                  <li>There Are Two Speed Configurations For Each Gear Box - High-Torque, or High-Speed!</li>
+                  <li>An 8-cell AA Battery Holders for Easy Installation and Removal of Batteries.</li>
+                  <li>Built-In Connectors for Drive-Up Docking Bay Which Allows Fast Recharge of Installed Batteries, and Wireless Communication between Robot and Computer.</li>
+                  <li>Includes a Motor Driver Board designed for Fast PWM Speed Control of Motors. Drive up to 2-amps by itself, or stack extra boards on for more power.</li>
+                  </ul>
+
+                  <img src="./images/botshot5.gif" class='img-responsive center-block'>
+
+                  <p>Below is a picture of the latest version of the Model-T. I've widened the base, added a sonar sensor, and the pictures below is using the my latest model of the Mini-PC.</p>
+
+                  <img src="./images/modelt_small.gif" class='img-responsive center-block'><br>
+
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseMinit')">
+              <div class="panel-heading" role="tab" id="headingMinit">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" href="#collapseMinit" aria-expanded="false" aria-controls="collapseMinit">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Mini-T
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseMinit" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMinit">
+                <div class="panel-body">
+                  <img src="./images/minit_small.gif" class='img-responsive center-block'>
+
+                  <p>The Mini-T is a smaller version of the Model-T. The idea was to create a smaller, more inexpensive version of the Model-T in order cater to different budgets and tastes. The Mini-T measures 10cm X 8.5cm which means it fits within the size requirement of the Northwest Mini-Sumo Competition. As you can see, the Mini-PC is mounted on top - giving the Mini-T the same amount of computing power as the Model-T.</p>
+
+                </div>
+              </div>
+            </div>                        
+          </div>          
+          
+        </div>        
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseOpenSource')">
+      <div class="panel-heading" role="tab" id="headingOpenSource">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseOpenSource" aria-expanded="false" aria-controls="collapseOpenSource">
+            <i class='glyphicon glyphicon-plus'></i>
+            Open Source
+          </a>
+        </h2>
+      </div>
+      <div id="collapseOpenSource" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOpenSource">
+        <div class="panel-body">
+          <p>I started the Free Charge Controller project in 2010. More recently, I have been donating my time to the Freedombox project to test their software on my Raspberry Pi.</p>
+                                  
+          <div class="panel-group" id="panelOpenSource" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseFreedombox')">
+              <div class="panel-heading" role="tab" id="headingFreedombox">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" href="#collapseFreedombox" aria-expanded="false" aria-controls="collapseFreedombox">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Freedombox
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseFreedombox" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFreedombox">
+                <div class="panel-body">
+                  <p>The <a href="http://freedombox.org" target="_blank">Freedombox</a> is a small embedded server that helps people prevent spying from repressive government organizations. It's an open source project started by Eblin Mogan. I contribute to the project by testing the latest builds on the Raspberry Pi. I maintain a blog about my experiments  and experiences with the Freedombox called <a href="http://experimentsinfreedom.wordpress.com" target="_blank">Experiments in Freedom</a>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseChargeController')">
+              <div class="panel-heading" role="tab" id="headingChargeController">
+                <h3 class="panel-title">
+                  <a role="button" data-toggle="collapse" href="#collapseChargeController" aria-expanded="false" aria-controls="collapseChargeController">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Free Charge Controller
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseChargeController" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingChargeController">
+                <div class="panel-body">
+                  <p>In 2010, I started the Open Source project <a href="http://freechargecontroller.org" target="_blank">FreeChargeController.org</a>. The main website uses MediaWiki to share design information and a mailing list for technical support and discussion. Working closely with <a href="jameco.com" target="_blank">Jameco</a>, an electronics part distributor, I developed a kit for them to sell. Although I have not contributed to the project since 2012, it has taken on a life of its own thanks to the power of MediaWiki and an active mailing list of over 500 members.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

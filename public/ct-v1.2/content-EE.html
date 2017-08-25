@@ -1,0 +1,239 @@
+<section>
+  <p>Although my degree is EECS (Electrical Engineering AND Computer Science), I focused much more on electrical engineering in my early career. The sections below showcase some of highlights of the work I've done in the electrical engineering field. Probably the most fun electrical engineering project I've done was converting a 1994 VW Cabriolet to electric with a mechanical engineering friend. A paper I wrote at Xerox gives a good example of the advanced circuit analysis and control systems design training that I have. The last three sections: Mini-PC, MDRV4, and WMS are all products that I developed for the robotics company that I tried to start.</p>
+  
+  <div class="panel-group" id="panelCircuits" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseElectricCar')">
+      <div class="panel-heading" role="tab" id="headingElectricCar">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" href="#collapseElectricCar" aria-expanded="false" aria-controls="collapseElectricCar">
+            <i class='glyphicon glyphicon-plus'></i>
+            Electric Car
+          </a>
+        </h2>
+      </div>
+      <div id="collapseElectricCar" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingElectricCar">
+        <div class="panel-body">
+          <img src="./images/electric_car_motor.jpg" class='img-responsive center-block'>
+          
+          <p>In the spring of 2009, I found myself out of work due to lay-off associated with the 2008 financial crisis. A mechanical engineer friend of mine also found himself in this same predicament. We had worked together on <b>traction control system</b> in college, and had talked frequently about building an electric car in college. I was able to find patron with a desire to own their own car, and so with time on our hands, we began to convert a 1994 VW 'rag-top' Cabriolet from gasoline to electric.</p>
+          <ul>
+            <li><p>The majority of the work on the electric car is documented on <a href="http://www.freechargecontroller.org/Electric_Car">this wiki</a>.</p></li>
+            <li><p>A photo slide-show of the highlights of the conversion is available in <a href="./files/EV_Conversion/ElectricCarPics.pdf">this PDF</a>.</p></li>
+            <li><p>Here is a <a href="http://www.youtube.com/watch?v=Oyl_0O8-TYc">YouTube video of the first test drive</a>.</p></li>
+            <li><p>Here is a poor-quality cell-phone <a href="./files/EV_Conversion/TiresSpinning.3g2">video of an initial spin of the tires</a>.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseJupiterWaveamp')">
+      <div class="panel-heading" role="tab" id="headingJupiterWaveamp">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseJupiterWaveamp" aria-expanded="false" aria-controls="collapseJupiterWaveamp">
+            <i class='glyphicon glyphicon-plus'></i>
+            Jupiter Waveamp
+          </a>
+        </h2>
+      </div>
+      <div id="collapseJupiterWaveamp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJupiterWaveamp">
+        <div class="panel-body">
+          <p>At Xerox, I designed and programmed test fixtures for performing a final functional test on circuit boards as they came down the assembly line as last step before final assembly. The circuit board would be inserted into the test fixture and a pneumatically actuated bed of nails would press against a series of test points on the board. A project we had, code named Taipan, had a circuit board called the Waveamp, which could not be tested accurately due to erroneous tripping of the over-current protection sub-circuit.</p>
+
+          <p><a href="./files/Xerox_Waveamp_Analysis.pdf">I wrote up this PDF analysis</a> to present as a design review for my find and fix of the problem. The fix was successful and helped the product stay on its project timeline. I reference this analysis as a good example of applying Control System principals to a practical electrical engineering problem.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseMiniPC')">
+      <div class="panel-heading" role="tab" id="headingMiniPC">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseMiniPC" aria-expanded="false" aria-controls="collapseMiniPC">
+            <i class='glyphicon glyphicon-plus'></i>
+            Mini-PC
+          </a>
+        </h2>
+      </div>
+      <div id="collapseMiniPC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMiniPC">
+        <div class="panel-body">
+          <a href="images/BB_diagram.gif">
+				    <img src="images/BB_diagram.gif" class='img-responsive center-block'>
+          </a>
+				  <p class='text-center'><a href="images/BB_diagram.gif">
+            Click For a Larger Image
+          </a></p>
+          <br />
+          <ol dynamicoutline type="I">
+            <li>
+              <b>An Atmel ATMEGA128 microcontroller which includes:</b>
+              <ol type="I">
+                <li type="i">16Mhz @ 16 MIPS throughput (this thing is FAST!) </li>
+                <li type="i">6 X 8-bit I/O Ports = 48 Separately Programmable I/O Lines </li>
+                <li type="i">128K Bytes Reprogrammable FLASH Program Memory</li>
+                <li type="i">4K Bytes Internal EEPROM</li>
+                <li type="i">4K Bytes Internal SRAM </li>
+                <li type="i">Two 8-bit timer/counters &amp; Two 16-bit timer/counters </li>
+                <li type="i">6 PWM Channels with Resolution from 2 to 16 bits </li>
+                <li type="i">Eight 10-bit <a href="files/software/uC/adc_example.pdf">Analog to Digital Converter</a> Channels </li>
+                <li type="i">+ Much More!</li>
+                <br>
+              </ol>
+            </li>
+            <li>
+              <b>In-Circuit Serial Programmable (ISP) - No extra programming hardware required!</b><br>
+              Simply use the included cable to connect the Brain Board to your computers parallel port to quickly and easily reprogram it. No extra hardware required, no high-voltage required, and no time consuming plugging and unplugging of chips.
+            </li>
+            <br>
+            <li>
+              <b>Free Open-Source Development Software in C, Basic, Assembly + Many More.</b><br />
+              The installation CD includes a copy of the free open-source GNU WinAVR and GCC-AVR compilers for both Windows and Linux. 
+            </li>
+            <br>
+            <li><b>16-Character by 2-Line LCD Display </b>
+              <br>
+              Large display with easy to use function calls in software which allows easy debugging and programmer feedback.
+            </li>
+            <br>
+            <li><b>32K Bytes Extra External <a href="files/software/uC/sram.pdf">SRAM</a> (Memory)</b><br>
+              Lots of extra space for memory intensive programs such as a Real Time Operating System.
+            </li>
+            <br>
+            <li><b>4 User Programmable <a href="files/software/uC/led_but.pdf">Switches</a> &amp; 4 User Programmable <a href="files/software/uC/led_but.pdf">LED</a>s</b><br>
+              The software controlled LEDs provide quick and easy user feedback. The momentary switches are coupled to interrupts and provide easy control of code stepping for software debugging, painless implementation of a menu system, or just simple feedback.
+            </li>
+            <br>
+            <li><b>Software Controlled <a href="files/software/uC/buz_example.pdf">Piezo Buzzer</a>.</b><br>
+              This buzzer is coupled to a PWM output for easy generation of tones in every frequency in the human hearing range. Have your robot play a little song!
+            </li>
+            <br>
+            <li><b>IR Transmitter &amp; Receiver</b><br>
+              The built in IR Transceiver allows two robots to talk to one another, wireless reprogramming, or use the provided example code to remotely control your robot via any universal TV remote control!
+            </li>
+            <br>
+            <li><b>5 X 5-Volt Regulated Output for Additional External Circuitry</b><br>
+              The regulated output allows you to power your own external circuitry, sensors, or add-on modules without the hassle of separate voltage regulation.
+            </li>
+            <br>
+            <li><b>5 X <a href="files/software/uC/twi.pdf">I2C</a> (<a href="files/software/uC/twi.pdf">TWI</a>) Ports</b><br>
+              I2C is a protocol developed by Philips Semiconductor. Many robotic components, sensors, and add-on modules use this to talk with one another. The provided 5 ports can be expanded to add-on any number of I2C components, and the provided software libraries make it easy and painless to control any I2C devices.
+            </li>
+            <br>
+            <li><b>Asynchronous 32.768 KHz Real Time Clock</b><br>
+              The <a href="files/software/uC/rtc.pdf">Real Time Clock</a> (<a href="files/software/uC/rtc.pdf">RTC</a>) allows you to track time independent of the main oscillator at a frequency more accurately aligned to the human time base.
+            </li>
+            <br>
+            <li><b>Separate Connector for <a href="files/software/uC/mtrsp.pdf">PWM Speed Control</a></b><br>
+              A separate connector allows interfacing to a motor driver with PWM Speed Control capabilities without taking up space on another port connector. The PWM signal can also be turned off in software for simple motor on/off control.
+            </li>
+            <br>
+            <li><b>Large Library of Easy to Use Functions - With Example Code!</b><br>
+              An included library lets the user control this board and all it's peripherals with only a few simple commands. The included <a href="files/minipc_manual.pdf">tutorial</a> and <u>dozens</u> of example modules allows anyone to become proficient at writing software for their robot quickly and easily.
+            </li>
+            <br>
+            <li><b>All Software is Open-Source</b><br>
+              All included software is distributed under the GPL Open-Source license. MyRobot encourages the sharing of source code and co-operative development of robotic software to improve robotics as a hobby for everyone.
+            </li>
+          </ol>
+          <br>
+          <a href="images/modelt_big.gif">
+				    <img src="images/modelt_small.gif" class='img-responsive center-block'>
+          </a>
+          <p class='text-center'><a href="images/modelt_big.gif">
+            Click For a Larger Image
+          </a></p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseMotorDriver')">
+      <div class="panel-heading" role="tab" id="headingMotorDriver">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseMotorDriver" aria-expanded="false" aria-controls="collapseMotorDriver">
+            <i class='glyphicon glyphicon-plus'></i>
+            Motor Driver - MDRV4
+          </a>
+        </h2>
+      </div>
+      <div id="collapseMotorDriver" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMotorDriver">
+        <div class="panel-body">
+          <a href="images/MDRV_diagram.gif">
+				    <img src="images/MDRV_diagram.gif" class='img-responsive center-block'>
+          </a>
+          <p class='text-center'><a href="images/MDRV_diagram.gif">
+            Click For a Larger Image
+          </a></p>
+          <br>
+          <ol type="I">
+            <li><b>Perfect Power Option for Medium Sized Robots</b> <br>
+              The MDRV board was designed in order to provide an economical solution to hobbyists who build medium sized robots (such as <a href="http://www.pdxbot.org/rules/sumo-rules.html">mini- sumo</a>). For most hobbyists, if motor driver ICs like the <a href="files/L293.pdf">L293</a> chips don't provide enough power, the only other options are semi-industrial sized motor drivers that are designed to put out way more power than they need and cost much more than they'd want to spend. If you fit the above description, then the MDRV board is the perfect solution for you!<br>
+            </li>
+            <br>
+            <li><b>Up to 4 Amps Continuous Power Output</b><br>
+              This dual motor driver board is designed to drive a DC or PWM signal at up to 4 amps (continuous) to each motor. i.e. 1 PWM signal for each motor, and each motor using up to 4 amps.
+              <br>
+            </li>
+            <br>
+            <li><b>Separate Motor Power Supply</b><br>
+              Two separate connectors allow the motors to be driven by a separate power supply anywhere from 0 to 30 Volts. The motor power is also electrically isolated from the rest of the 5V circuitry which protects the robot against shorts and dangerous transient voltage spikes which often occur during competitions.<br>
+            </li>
+            <br>
+            <li><b>Protected Against Internal Shorting</b>
+              Many motor driver boards and ICs (such as the <a href="files/L293.pdf">L293</a>) will short themselves out internally if the wrong control pattern is sent to them. Irreparable damage is done to the board or IC when this happens, and so much heat is generated it can easily injure anyone handling them at the time. Extra logic was designed into the MDRV Motor Driver to eliminate this from happening in order protect our consumers both physically and monetarily.
+            </li>
+            <br>
+            <li><b>Add-On Board Available to Triple Output Power!</b><br>
+              For those hobbyists who need a little extra power, an inexpensive add-on board is available which triples the output power to each motor. This supplies up to 12 amps to each motor!
+            </li>
+            <br>
+            <li><b>Impedance Matching Capacitor for Maximum Power Delivery</b><br>
+              All motors appear electrically as an inductor in series with a resistor. The electrical opposite of an inductor is a capacitor. The included user manual instructs the user on how to select and install an impedance matching capacitor to <u>maximize</u> the power delivery to each motor.
+            </li>
+            <br>
+            <li><b>Polarized Power Connectors</b><br>
+              Each power connector is polarized to prevent hobbyists from accidentally connecting power up backwards. This is a surprisingly common and damaging mistake.
+            </li>
+            <br>
+            <li><b>Don't Get Pushed Out of the Ring!</b><br>
+              Proper power delivery and motor control is the most important aspect in <a href="http://www.pdxbot.org/rules/sumo-rules.html">Sumo</a> and <a href="http://www.pdxbot.org/rules/sumo-rules.html">Mini-Sumo</a> competitions next to traction and weight. The MDRV Motor Driver is the best way to give your robot the edge it needs to win every competition.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseWheelMonitor')">
+      <div class="panel-heading" role="tab" id="headingWheelMonitor">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseWheelMonitor" aria-expanded="false" aria-controls="collapseWheelMonitor">
+            <i class='glyphicon glyphicon-plus'></i>
+            Wheel Monitoring System - WMS
+          </a>
+        </h2>
+      </div>
+      <div id="collapseWheelMonitor" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWheelMonitor">
+        <div class="panel-body">
+          <a href="images/odom_diagram.gif">
+				    <img src="images/odom_diagram.gif" class='img-responsive center-block'>
+          </a>
+				  <p class='text-center'><a href="images/odom_diagram.gif">
+            Click For a Larger Image
+          </a></p>
+          <br />
+          <ol type="I">
+            <li><b>Three Essential Circuits in One!</b><br>
+              The odometer/speed controller is an odometer, DC motor speed controller, and dead-reckoning/wheel encoding system in one. The Odometer feature keeps track of the distance traveled in average and by each wheel. The dead-reckoning/wheel encoder feature uses the input from two Infrared sensors to monitor and track wheel speed. The speed control feature uses wheel encoder data as feedback, and adjusts its PWM output signal to maintain a steady, and extremely accurate speed which is set by the user.
+            </li>
+            <br>
+            <li><b>I2C Controlled</b><br>
+              The main microcontroller board communicated with the odometer/speed controller via I2C protocol to get on-the-fly speed, rpm, power, and efficiency measurements, as well as distance traveled information and more. This allows total control of the odometer/speed controller with only two wires!
+            </li>
+            <br>
+            <li><b>Most Simple and Accurate Way to Control Robotic Travel</b><br>
+              With a few simple function calls, a user can set the robot to go at a very specific speed. As so often happens in hobby situations, if one motor requires more power than the other to maintain the same speed, the odometer automatically monitors and adjusts for this.
+            </li>
+            <br>
+            <li><b>Reprogrammable</b><br>
+              What's more, the odometer is reprogrammable via the MyRobot <a href="# mini_computer.htm">Mini-PC</a>. If the user desires to make it do something else, add more features, or just finds a more efficient way to write the code, they can share it, and everyone can reprogram their odometer/speed controller quickly and easily.
+            </li>
+          </ol>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

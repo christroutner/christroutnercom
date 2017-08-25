@@ -1,0 +1,164 @@
+<section>
+
+  <p>These days JavaScript is <b>everywhere</b>. I started learning JavaScript in earnest at Xerox while developing control and UI software for the text fixtures I designed. At Integra I maintained and expanded their testing scripts that perform automated testing on their flagship product. These tests were written in JavaScript and executed through the Windows Script interpreter, wScript.</p> 
+
+  <p>I have used JavaScript to create animated and Responsive webpages (like this one) for several years, but began to spend significant effort in 2013 expanding my knowledge of the jQuery and Node.js libraries, as well as the AJAX protocol. There has been an explosion of cheap, networked, 32-bit mini-computers like the Raspberry Pi and Arduino, as well as the growing trend of the Internet of Things (IoT). I believe the jQuery library provides the tools to build awesome web-based user interfaces for IoT devices and Node.js allows that UI to control the embedded device. I am currently playing with a Raspberry Pi to develop an embedded webserver that can be remotely controlled. 
+  </p>
+  
+  <div class="panel-group" id="panelJavaScript" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseTesting')">
+      <div class="panel-heading" role="tab" id="headingTesting">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" href="#collapseTesting" aria-expanded="false" aria-controls="collapseTesting">
+            <i class='glyphicon glyphicon-plus'></i>
+            Testing and Automation
+          </a>
+        </h2>
+      </div>
+      <div id="collapseTesting" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTesting">
+        <div class="panel-body">
+          <p>At Xerox I wrote test scripts in JavaScript that would run functional tests on the circuit board sub-components of their printer products. As the
+            circuit boards would reach the end of the assembly line, prior to final assembly, they would be put into a test fixture. A bed of needles would be
+            lowered onto the circuit board and connect it a computer on the test fixture. I designed the interface hardware, programmed the embedded microcontrollers in C, and wrote the
+            functional testing software on the computer in JavaScript. The software would put the circuit board through its paces and catalog any unexpected
+            behavior. Tests were prioritized and results uploaded to a central server for data mining. These fixtures were essential for Xerox's six-sigma
+            management strategy and warranty insurance research.</p><br>
+
+            <p>My position at Integra was as a software tester. About half my job was manual testing and the other half I spent on maintaining their suite
+            of automated testing scripts, written in JavaScript. During my time there, I added dozens of test cases, made several improvements to the utility
+            libraries, and assisted in the design and build out of a Build Verification Test (BVT) program that automated the testing of the nightly build.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapsejQuery')">
+      <div class="panel-heading" role="tab" id="headingjQuery">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapsejQuery" aria-expanded="false" aria-controls="collapsejQuery">
+            <i class='glyphicon glyphicon-plus'></i>
+            Front-End: jQuery, AJAX, and Google Maps
+          </a>
+        </h2>
+      </div>
+      <div id="collapsejQuery" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingjQuery">
+        <div class="panel-body">
+          
+          <p>
+            This website is itself an example of the Front-End work I've done. This site uses Twitter Bootstrap for the site layout and JavaScript sprinkled
+            throughout the HTML using Angular. Resize the browser window to test the Responsive mobile-friendly layout. 
+          </p>
+            <p>
+            I've been interested in GPS and Google Maps for several years. Over the last two years I've taught myself the ins and outs of the Google Map API.
+            Over the last year I've also been playing with a SPOT Satellite tracking device and learning how to integrate it with a Google Map. 
+            Below are examples of Google Map application prototypes I've built, which have a front-end and back-end component. 
+          </p>
+          <br>
+          <ul>
+            <li>
+            <a href="SPOTMap.html" target="_blank">SPOT Tracker Map</a> - I wrote this application to display a sliding window of GPS data from my SPOT tracker. I use it to keep track 
+              of my sailing journeys and to share my location with readers of <a href="http://sanjuansufficiency.com" target="_blank">my 
+              sailing blog</a>.
+            </li>
+            <ul><li><a href="https://github.com/christroutner/SPOT-JS" target="_blank">View GitHub Repository</a></li></ul>
+            <br>
+            
+            <li>
+            <a href="http://christroutner.com/MultipleMaps.html" target="_blank">Collaborative Geo-Data</a> - This application allows people to interactively update a common database of geographical data. I had intended
+              to use this application to allow other boaters to share information about anchorages in remote locations and sources of wild food
+              nearby. Unfortunately <a href="https://activecaptain.com/X.php" target="_blank">Active Captain</a> came up with this idea before me. I decided to release the code as Open Source 
+              under the GNUv2 license.
+            </li>
+            <ul><li><a href="https://github.com/christroutner/Collaborative-Geo-Data-v0.1.02/" target="_blank">View GitHub Repository</a></li></ul>
+            <br>
+                
+            <li>
+              <a href="StockChart.html" target="_blank">30-Day Stock Chart</a> - The amChart library allows easy creation of stock charts and contains other data visualization tools. This
+              is an example I wrote for myself. It downloads the last 30 days of stock data from the Yahoo! Finance server, processes the data,
+              and configures an amChart to display the data. The amChart libraries are great for creating beautiful data visualizations on a web page.              
+              <br>
+                <ul><li><a href="https://jsfiddle.net/christroutner/j7f2k6rf/" target="_blank">Edit on JSFiddle</a></li></ul>
+              <br>
+            </li>
+            <br>
+            <li>
+              <p>
+              <b>This Site!</b> - This site uses the Twitter Bootstrap framework accentuated with custom JavaScript code sprinkled throughout the HTML using the Angular.js
+              framework. 
+              <ul>
+                <li>The content sections have been modularized using Angular Directives.</li>
+                <li>The animation for Back-End section below uses a custom Directive to inject the animation HTML into the page.</li>
+                <li>The collapsing panels that make up this website are native to Bootstrap, but the animation of the '+' and '-' signs is custom code attached to panel elements with another custom Angular Directive.</li>
+              </ul> 
+               All the code used on this site is freely available without restriction and can be downloaded via GitHub.
+              </p>
+            </li>
+            <ul><li><a href="https://github.com/christroutner/ct-v1.2" target="_blank">View GitHub Repository</a></li></ul>
+            <br>
+          </ul>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default"  ng-init="PC.initCollapseIcon('#collapseNode')">
+      <div class="panel-heading" role="tab" id="headingNode">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" href="#collapseNode" aria-expanded="false" aria-controls="collapseNode">
+            <i class='glyphicon glyphicon-plus'></i>
+            Back-End: Node.js and Embedded Web Server
+          </a>
+        </h2>
+      </div>
+      <div id="collapseNode" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNode">
+        <div class="panel-body">
+          <p>
+            I became interested in Node (or Node.js) for its ability to execute Back-end/Server-side functions with programs written in JavaScript.
+            This is handy in many places, but my personal interest was in open-source, embedded web servers such as the <a href="https://www.sparkfun.com/products/12994" target="_blank">Raspberry Pi</a>.
+            The examples below were originally designed and run on a Raspberry Pi. For purposes of demonstration on this site, I ported the code to Node servers running Windows 2008 Server in the Amazon EC2 Cloud. 
+            The code examples below discuss the backend components of the examples listed above in the Front-End section.<p>
+            
+          <p>
+            The code examples never progressed past the prototyping stage, so they used simple CSV files for data storage. 
+            For scalability, a SQL database would normally be used, but CSV is great for small websites and quick prototyping.
+            I am currently taking courses at <a href='https://www.codeschool.com/users/1623156' target='_blank'>Code School</a> to practice building and maintaining SQL databases. 
+            Node.js has several excellent SQL API libraries.
+          </p>
+          <br>
+          <ul>
+            <li>
+              <p>
+                <a href="SPOTMap.html" target="_blank">SPOT Tracker Map</a> - The server linked to my SPOT satellite tracker data is published as an XML file. Only the last 50 data points are available. 
+                As new data comes in, old data is discarded, but I never use more than 50 data points in a day. 
+                I wrote an application in Node that downloads the XML file and parses the data into a CSV file. 
+                This data is then retrieved by the client-side JavaScript running in the Client's browser.
+              </p>
+              
+              <p>  
+                The Node application I wrote to download the data originally ran on a Raspberry Pi embedded computer, running Debian Linux. 
+                I’ve since adapted the code and moved it to a virtual server in the Amazon EC2 cloud running Windows 2008 Server. 
+                This server is responsible for downloading the tracking data once per day and appending new data to a CSV file stored on the server.
+              </p>
+              <br>
+              <illustrate-spot-tracker></illustrate-spot-tracker>
+              <br>
+            </li>
+            
+            <li>
+              <p>
+                <a href="http://christroutner.com/MultipleMaps.html" target="_blank">Collaborative Geo-Data</a> - Similar to the satellite tracking application above, the Geo-Data for this map is stored in a CSV file.
+                However, the two additional Client pages contain forms that allow users to <a href="http://christroutner.com/AddNew.html" target="_blank">create new map markers</a> and update existing map markers.
+                These forms make POST and GET requests to a custom web-service written in JavaScript and running in Node. 
+                These services update the CSV file, allowing for collaborative editing of the database.
+              </p> 
+              <br>
+              <illustrate-geo-data></illustrate-geo-data>
+              <br>
+            </li>
+            
+          </ul>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

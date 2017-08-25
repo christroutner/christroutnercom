@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainPage">
+<head>
+  <!-- 
+  Dev Notes:
+    This site is written using the Twitter Bootstrap framework. Custom JavaScript and modularity of code is carried
+    out with the Angular.js library. All code on this site is freely available for use without restriction. 
+
+  -->
+  
+  <!-- Meta compatibility items -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Chris Troutner | Professional Portfolio</title>
+
+  <link href="css/bootstrap.min.css" media="all" rel="stylesheet" />
+  <link href="css/main.css" media="all" rel="stylesheet" /> <!-- Code School stylesheet -->
+  <link href="css/app.css" media="all" rel="stylesheet" /> <!-- My own custom stylesheet -->
+
+  
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+  <style>
+    vcenter {
+      display:table-cell;
+      vertical-align: middle;
+      float: none;
+      text-align: center;
+    }
+    
+    row-xs-flex-center {
+        display:flex;
+        align-items:center;
+    }
+    @media ( min-width:768px ) {
+        .row-sm-flex-center {
+            display:flex;
+            align-items:center;
+        }
+    }
+    @media ( min-width: 992px ) {
+        .row-md-flex-center {
+            display:flex;
+            align-items:center;
+        }
+    }
+    @media ( min-width: 1200px ) {
+        .row-lg-flex-center {
+            display:flex;
+            align-items:center;
+        }
+    }
+  </style>
+</head>
+  
+<body ng-controller='PrimaryController as PC' data-spy="scroll" data-target=".navbar" data-offset="50">
+  <header class='navbar navbar-default navbar-fixed-top'>
+    <nav class='container' role='navigation'>
+      <div class='navbar-header'>
+        <a href='index.html' class='navbar-brand'>Chris Troutner<span class='hidden-sm hidden-xs'> - Professional Portfolio</span></a>
+
+        <!-- Hamburger button for small screens -->
+        <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+          <span class='sr-only'>Toggle navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+      </div>
+
+      <!-- Navigation Buttons for big screen -->
+      <!-- <ul class='nav nav-tabs navbar-nav navbar-right collapse navbar-collapse'> -->
+      <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+        <li><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAbout" aria-expanded="true" aria-controls="collapseAbout">
+          About
+        </a></li>
+        <li><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJavaScript" aria-expanded="true" aria-controls="collapseJavaScript">
+          JavaScript
+        </a></li>
+        <li><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWebDev" aria-expanded="true" aria-controls="collapseWebDev">
+          Web-Dev
+        </a></li>
+        <li><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEmbedded" aria-expanded="true" aria-controls="collapseEmbedded">
+          Embedded
+        </a></li>
+        <li><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCircuits" aria-expanded="true" aria-controls="collapseCircuits">
+          Circuits
+        </a></li>      
+      </ul>
+    </nav>
+  </header>
+
+  <section id="#scrollspysection">
+    <div class='container'>
+
+      <!-- Need to add a row of space so that the static nav bar doesn't bleed into the Container. Not sure if <br> is the best html to use anymore. -->
+      <!-- To-Do: check this div presentation in different browsers and different screen sizes. -->
+      <div class='row'>
+        <br></br>
+      </div>
+
+      <!-- 
+      Not used, but for reference:
+      row-md-flex-center class is custom solution to center the navigation arrows. This solution found on stackexchange: 
+        https://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3/20548652#20548652?newreg=b027880ff2e448e6b07ce7ea2256a542
+      -->
+      <div class='row'>
+
+        <div class='col-md-2'>
+          <!-- Selfie Image -->
+          <img src='images/me.jpg' class='img-responsive center-block' alt='Chris Troutner' />
+          <br>
+          <b><p class='text-center'>
+            <a href="files/troutner_resume_08_2015.pdf">Download Resume</a>
+          </p></b>
+          <br>
+          <!-- Left Column Button Menu -->
+          <div class='visible-md visible-lg'>
+            <ul class='list-unstyled'>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJavaScript" aria-expanded="false" aria-controls="collapseJavaScript">
+                  JavaScript
+              </a></li><br>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWebDev" aria-expanded="false" aria-controls="collapseWebDev">
+                  Web Design
+              </a></li><br>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEmbedded" aria-expanded="false" aria-controls="collapseEmbedded">
+                  Embedded Software
+              </a></li><br>
+              <li>
+                <a class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCircuits" aria-expanded="false" aria-controls="collapseCircuits">
+                  Electrical Engineering
+              </a></li></br>
+            </ul>          
+          </div>
+        </div>
+
+        <div class='col-md-10'>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <!-- <div ng-controller='panelController as panelCtrl' ng-init='tab=1' class="panel panel-default"> -->
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseAbout')">
+              <div class="panel-heading" role="tab" id="headingAbout">
+                <h1 class="panel-title">
+                  <a role="button" id="titleOverview" data-toggle="collapse" data-parent="#accordion" href="#collapseAbout" aria-expanded="true" aria-controls="collapseAbout">
+                    <i class='glyphicon glyphicon-minus'></i>
+                    Overview
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseAbout" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingAbout">
+                <div class="panel-body">
+                  <content-about></content-about>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseJavaScript')">
+              <div class="panel-heading" role="tab" id="headingJavaScript">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJavaScript" aria-expanded="false" aria-controls="collapseJavaScript">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    JavaScript
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseJavaScript" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJavaScript">
+                <div class="panel-body">
+                  <content-javascript></content-javascript>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseWebDev')">
+              <div class="panel-heading" role="tab" id="headingWebDev">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWebDev" aria-expanded="false" aria-controls="collapseWebDev">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Web Design &amp; SEO
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseWebDev" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWebDev">
+                <div class="panel-body">
+                  <content-webdev></content-webdev>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseEmbedded')">
+              <div class="panel-heading" role="tab" id="headingEmbedded">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEmbedded" aria-expanded="false" aria-controls="collapseEmbedded">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Embedded Software
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseEmbedded" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEmbedded">
+                <div class="panel-body">
+                  <content-embedded></content-embedded>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-init="PC.initCollapseIcon('#collapseCircuits')">
+              <div class="panel-heading" role="tab" id="headingCircuits">
+                <h1 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCircuits" aria-expanded="false" aria-controls="collapseCircuits">
+                    <i class='glyphicon glyphicon-plus'></i>
+                    Electrical Engineering
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseCircuits" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCircuits">
+                <div class="panel-body">
+                  <!-- <section ng-include="'content-EE.html'"></section> -->
+                  <content-circuits></content-circuits>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--
+      <div class='row'>
+        next row
+      </div>
+      -->
+
+
+    </div>
+  </section>
+
+  <!-- Floating Nav Bar affixed to bottom of small and extra small screens to take viewer back to the top. -->
+  <nav class="navbar navbar-default navbar-fixed-bottom visible-xs visible-sm">
+    <div class="container">
+      <p class='text-center lead'><strong><a href="#">Go To The Top</a></strong></p>
+    </div>
+  </nav>
+
+
+
+  <div class='footer'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-4 col-md-3 col-md-offset-1 col-xs-6'>
+          <h4>Contact Me:</h4>
+          <ul class='list-unstyled'>
+            <li><table><tr>
+              <td><i class='glyphicon glyphicon-globe'> </i></td> 
+              <td>1004 Commercial Ave, #458 <br> Anacortes, WA 98221</td>
+            </tr></table><li><br>
+            <li><i class='glyphicon glyphicon-phone'></i> Skype: <a href="skype:chris.troutner?chat">chris.troutner</a><li><br>
+            <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:chris.troutner@gmail.com'>chris.troutner@gmail.com</a><li>
+          </ul>
+        </div>
+
+        <div class='col-sm-4 col-md-3 col-xs-6'>
+          <h4>Social Media Profiles:</h4>
+          <p><a href='https://www.linkedin.com/pub/chris-troutner/8/2bb/733' target='_blank'>LinkedIn Profile</a></p>
+          <p><a href='https://www.codeschool.com/users/1623156' target='_blank'>Code School</a></p>
+          <p><a href='http://stackoverflow.com/users/5179542/chris-troutner?tab=profile' target='_blank'>Stack Overflow</a></p>
+          <p><a href='https://github.com/christroutner' target='_blank'>GitHub</a></p>
+        </div>
+
+        <div class='col-sm-4 col-md-offset-1 hidden-xs'>
+          <h4>Code School Badges:</h4>
+          <!--
+          <table>
+            <tr>
+              <td><img src="images/CodeSchoolBadge-jQuery.png" class='img-responsive center-block'></td>
+              <td><img src="images/CodeSchoolBadge-Bootstrap.png" class='img-responsive center-block'></td>
+              <td><img src="images/CodeSchoolBadge-Angular.png" class='img-responsive center-block'></td>
+            </tr>
+          </table>
+          -->
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">              
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active" style='visibility: hidden;'></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1" style='visibility: hidden;'></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2" style='visibility: hidden;'></li>
+            </ol>
+
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <a href="https://www.codeschool.com/courses/try-jquery" target="_blank">
+                  <img src="images/CodeSchoolBadge-jQuery.png" alt="jQuery Badge" class='img-responsive center-block img-rounded' height='200'>
+                  <p class="text-center bg-info text-muted">jQuery</p>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://www.codeschool.com/courses/blasting-off-with-bootstrap" target="_blank">
+                  <img src="images/CodeSchoolBadge-Bootstrap.png" alt="Boostrap Badge" class='img-responsive center-block img-rounded'>
+                  <p class="text-center bg-info text-muted">Twitter Bootstrap Framework</p>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://www.codeschool.com/courses/shaping-up-with-angular-js" target="_blank">
+                  <img src="images/CodeSchoolBadge-Angular.png" alt="Angular Badge" class='img-responsive center-block img-rounded'>
+                  <p class="text-center bg-info text-muted">Angular.js</p>
+                </a>
+              </div>
+              
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            
+          </div>
+          
+        </div>
+
+        <div class='clearfix visible-xs'></div>
+
+
+      </div>
+
+      <!-- A row to add blank space in sm and xs screens so the bottom nav bar doesn't cover up the footer. -->
+      <div class='row visible-xs visible-sm'>
+        <div class='col-sm-12 col-xs-12'>
+          <p><br><br><br></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/bootstrap.min.js?body=1"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+
+
+
+  <!--  This snippet used to collapse hamburger menu on extra-small screens.
+        Source: http://bit.ly/1N1M6r4 -->
+  <script type="text/javascript">
+    $(document).on('click','.navbar-collapse.in',function(e) {
+      if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+          $(this).collapse('hide');
+      }
+    }); 
+  </script>
+
+  <!-- Google Analytics Tracking Code -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68287428-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</body>
+</html>

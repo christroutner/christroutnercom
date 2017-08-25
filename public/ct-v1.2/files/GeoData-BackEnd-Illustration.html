@@ -1,0 +1,50 @@
+
+    
+<div id='GeoDataIllustration' class='img-responsive center-block'> 
+  <img src="../images/GeoDataSlide1.jpg" class='img-responsive center-block'>
+  <p class='text-center lead'>
+    1) The client requests the CSV file to populate the map.
+  </p>
+</div>
+
+<script type='text/javascript'>
+  
+  $(document).ready(function() {
+  
+    var numState = 1; //Tracks change in state to determine which image to show.
+    var divParent = $('#GeoDataIllustration')[0];
+    var imgCurrent = $(divParent).find('img')[0];  //Image inside the div
+    var caption = $(divParent).find('p')[0];       //Caption inside the div
+    
+    //This function handles the DOM manipulation.
+    var animateGeoData = function() {
+      
+      if(numState == 1) {
+        $(imgCurrent).attr("src", "./images/GeoDataSlide1.jpg");
+        $(caption).text('1) The client requests the CSV file to populate the map.');
+        numState++;
+
+      
+      } else if(numState == 2) {
+        $(imgCurrent).attr("src", "./images/GeoDataSlide2.jpg");
+        $(caption).text('2) Individual location details are downloaded as XML as requested');
+        
+        numState++;
+       
+      
+      } else if(numState == 3) {
+        $(imgCurrent).attr("src", "./images/GeoDataSlide3.jpg");
+        $(caption).text('3) Locations are modified and added through POST submissions to a custom webservice written in Node. Node updates the CSV and XML files.');
+        
+        numState = 1;
+      } 
+
+    };
+    
+    //An Interval is setup to call the animateGeoData() function every 5 seconds.
+    window.setInterval(animateGeoData, 5000);
+
+  });
+  
+  
+</script>

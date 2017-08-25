@@ -1,0 +1,56 @@
+
+body{
+  font-family: Baskerville, "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-weight: 400;
+	font-size: 18px;
+	color: #333;
+  //position needed to use Scrollspy
+  position: relative;
+}
+h1{
+	font-size: 40px;
+	padding-bottom: 15px;
+	border-bottom: 5px solid rgba(190, 211, 226, 0.2);
+	color: #a9becd;
+	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+	box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.4);
+	font-weight: 700;
+}
+h2{
+	font-size: 40px;
+	padding-bottom: 15px;
+	border-bottom: 5px solid rgba(190, 211, 226, 0.2);
+	color: #a9becd;
+	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+	box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.4);
+	font-weight: 700;
+}
+h3{
+	font-style: italic;
+	font-size: 26px;
+	color: #585959;
+	text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4);
+}
+
+
+h1.panel-title {
+  font-size: 30px;
+}
+h2.panel-title {
+  font-size: 25px;
+}
+h3.panel-title {
+  font-size: 20px;
+}
+
+
+
+
+
+.panel-body{
+  /* background: green; */
+  /*
+  background: #FFFF99;
+  */
+}
+

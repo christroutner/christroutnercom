@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>View Details on this Location</title>
+
+  <script src="./jquery.js"></script>
+  <script src="./jquery.csv-0.71.js"></script>
+  <!-- <script src="./papaparse.js"></script> -->
+  
+  <script>
+			
+    // Global Variables
+    var xmlDoc;
+            
+            
+            
+    // Wait until the DOM has loaded before querying the document
+    $(document).ready(function(){
+
+      var UniqueID;
+
+      //Create a custom event for when the XML file is finished loading.
+      var XMLevent = new CustomEvent('XMLLoaded', {
+      });
+
+      // RETRIEVE THE URL WHICH CONTAINS THE PASSED IN UNIQUEID
+      //Create a variable for the URL (not a string).
+      var locate = window.location 
+      //Dump the URL data into the hidden form, forcing it into a string of text.
+      document.hiddenform.hiddentext.value = locate 
+      //Read the URL out of the hidden text box.
+      var text = document.hiddenform.hiddentext.value 
+
+      //This function retrieves the UniqueID value from the URL string.
+      function delineate2(str){
+          point = str.lastIndexOf("=");
+          return(str.substring(point+1,str.length));
+      }
+
+      UniqueID = delineate2(text);
+
+      document.write("UniqueID is " +UniqueID);
+
+      // Retrieve the XML file for this marker.
+      // Call the XMLevent after the file finishes loading.
+      var xmlFile = new XMLHttpRequest();
+      var FileName = "./locations/" + UniqueID + ".xml";
+      xmlFile.open("GET", FileName, true);
+      xmlFile.onreadystatechange = function() {
+        if (xmlFile.readyState === 4) {  // Makes sure the document is ready to parse.
+          if (xmlFile.status === 200) {  // Makes sure it's found the file.
+
+            // Parse the XML from the raw text
+            var parser = new DOMParser();
+            xmlDoc = parser.parseFromString(xmlFile.responseText, "text/xml");
+
+            // Call the XMLEvent to signal that the XML is finished loading
+            document.dispatchEvent(XMLevent)
+
+          }
+        }
+      }
+      xmlFile.send(null); //Execute the file request.
+
+
+      // Create an event listener that executes after the XML file has finished loading.
+      document.addEventListener('XMLLoaded', function (e) {
+
+        debugger;
+
+        var contentstring = '<div id="LocationInfo">' +
+          '<h1>' + xmlDoc.getElementsByTagName("Title")[0].childNodes[0].nodeValue + '</h1>' +
+          '<br>' +
+          '<p> Summary: ' + xmlDoc.getElementsByTagName("Summary")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Last Updated by: ' + xmlDoc.getElementsByTagName("UserName")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Revision number: ' + xmlDoc.getElementsByTagName("CurrentVersion")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Updated on: ' + xmlDoc.getElementsByTagName("DateUpdated")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Latitude: ' + xmlDoc.getElementsByTagName("Latitude")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Longitude: ' + xmlDoc.getElementsByTagName("Longitude")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Approach and Anchorage: ' + xmlDoc.getElementsByTagName("Approach")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Description: ' + xmlDoc.getElementsByTagName("Description")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> NOAA Image: ' + xmlDoc.getElementsByTagName("NOAAImage")[0].childNodes[0].nodeValue + '</p>' +
+          '<br>' +
+          '<p> Image 1: ' + xmlDoc.getElementsByTagName("Image")[0].childNodes[0].nodeValue + '</p>' +
+          '</div>';
+
+          //$(document).append(contentstring);
+          document.write(contentstring);
+
+      }, false);
+                
+                
+			});
+		</script>
+	</head>
+  <body>
+
+    <!-- Create a hidden form. This is used to process the URL. -->
+    <FORM NAME="hiddenform">
+    <INPUT TYPE="hidden" NAME="hiddentext" SIZE="35">
+    </form>
+
+    <div id="status">
+        <p>Loading the page...</p>
+    </div>
+    
+  </body>
+</html>
