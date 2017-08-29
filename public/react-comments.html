@@ -164,15 +164,15 @@
         this.state = {
           showComments: true, //show comments as an initial state.
           btnText: "Hide Comments",
-          comments: [
-            { id: 1, author: 'Morgan McCircuit', body: 'Great picture!'},
-            { id: 2, author: 'Bending Bender', body: 'Execellent stuff'}
-          ]
+          comments: []
+          //  { id: 1, author: 'Morgan McCircuit', body: 'Great picture!'},
+          //  { id: 2, author: 'Bending Bender', body: 'Execellent stuff'}
+          //]
         };
       }
       
       componentWillMount() {
-        //this._fetchComments(); //Fetch comments from server before component is rendered.
+        this._fetchComments(); //Fetch comments from server before component is rendered.
       }
       
       render() {

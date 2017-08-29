@@ -22,5 +22,5 @@ ReactComment.add({
  * ============
  */
 
-ReactComment.defaultColumns = 'name, dateStamp|20%';
+ReactComment.defaultColumns = 'author, dateStamp|20%';
 ReactComment.register();
