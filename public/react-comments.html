@@ -243,7 +243,11 @@
       }
       
       //Gets triggered by CommentForm when a new comment is added.
-      _addComment(author, body, dateStamp) {	
+      _addComment(author, body) {	
+        
+        var now = new Date();
+        var dateStamp = now.toLocaleString();
+        
         const comment = { //New comment object
           id: this.state.comments.length +1,
           author,
@@ -327,15 +331,11 @@
       
       _handleSubmit(event) {
         event.preventDefault(); //Prevent page from reloading.
-        debugger;
         
         var author = this._author; //Populated from refs in JSX
         var body = this._body;
         
-        var now = new Date();
-        var dateStamp = now.toLocaleString();
-
-        this.props.addComment(author.value, body.value, dateStamp); 
+        this.props.addComment(author.value, body.value); 
       }
     }
 
