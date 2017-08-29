@@ -210,7 +210,7 @@
         
         return this.state.comments.map((comment) => { //Each element of commentList is passed as an argument.
           return (
-            <Comment author={comment.author} body={comment.body} key={comment._id} />
+            <Comment author={comment.author} body={comment.body} dateStamp={comment.dateStamp} key={comment._id} />
           );
         });
       }
@@ -289,7 +289,7 @@
               <div className="col-sm-10">
                 <div className="panel panel-default">
                   <div className="panel-heading">
-                    <strong>{this.props.author}</strong> <span className="text-muted">commented 5 days ago</span>
+                    <strong>{this.props.author}</strong> <span className="text-muted">commented {this.props.dateStamp}</span>
                   </div>
                   <div className="panel-body">
                     <p>
