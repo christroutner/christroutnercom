@@ -11,8 +11,8 @@ var ReactComment = new keystone.List('ReactComment', {
 });
 
 ReactComment.add({
-  name: { type: String, index: true },
-  message: { type: String },
+  author: { type: String, index: true },
+  body: { type: String },
   dateStamp: { type: String }
 });
 

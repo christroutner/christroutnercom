@@ -243,16 +243,22 @@
       }
       
       //Gets triggered by CommentForm when a new comment is added.
-      _addComment(author, body) {	
+      _addComment(author, body, dateStamp) {	
         const comment = { //New comment object
           id: this.state.comments.length +1,
           author,
-          body
+          body,
+          dateStamp
         };
         
         //Updates state when function is called by adding a new comment.
         //New array references help React stay fast, so 'concat' works better than 'push' here.
         this.setState({ comments: this.state.comments.concat([comment]) }); 
+        
+        debugger;
+        $.post('/api/reactcomments/create', comment, (data) => {
+          debugger;
+        });
       }
       
       _fetchComments() {
@@ -324,8 +330,11 @@
         
         var author = this._author; //Populated from refs in JSX
         var body = this._body;
+        
+        var now = new Date();
+        var dateStamp = now.toLocaleString();
 
-        this.props.addComment(author.value, body.value); 
+        this.props.addComment(author.value, body.value, dateStamp.value); 
       }
     }
 
