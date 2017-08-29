@@ -176,7 +176,7 @@
       }
       
       render() {
-        var comments = this._getComments();
+        var comments = this.state.comments;
         var commentsTitle = this._getCommentsTitle(comments.length);
         
         var commentNodes;
