@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React.js Blog Comment Demo</title>
+
+  <link href="/styles/bootstrap/bootstrap.min.css" media="all" rel="stylesheet" />
+  <link href="/styles/main.css" media="all" rel="stylesheet" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+  <style>
+    .thumbnail {
+      padding:0px;
+    }
+    .panel {
+      position:relative;
+    }
+    .panel>.panel-heading:after,.panel>.panel-heading:before{
+      position:absolute;
+      top:11px;left:-16px;
+      right:100%;
+      width:0;
+      height:0;
+      display:block;
+      content:" ";
+      border-color:transparent;
+      border-style:solid solid outset;
+      pointer-events:none;
+    }
+    .panel>.panel-heading:after{
+      border-width:7px;
+      border-right-color:#f7f7f7;
+      margin-top:1px;
+      margin-left:2px;
+    }
+    .panel>.panel-heading:before{
+      border-right-color:#ddd;
+      border-width:8px;
+    }
+    .spacer {
+      margin: 0px 10px;
+    }
+    .myhr {
+      border-top: 5px solid #E00;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <header class='navbar navbar-default navbar-fixed-top'>
+    <nav class='container' role='navigation'>
+      <div class='navbar-header'>
+        <a href='#' class='navbar-brand'>Comment Box App</a>
+
+        <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+          <span class='sr-only'>Toggle navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+      </div>
+
+      <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+        <!--
+        <li><a href='#'>Tickets</a></li>
+        <li><a href='#'>Stations</a></li>
+        <li class='dropdown'>
+          <a href='/about' data-target='#' class='dropdown-toggle' data-toggle='dropdown'>About <span class='caret'></span></a>
+          <ul class='dropdown-menu' role='menu'>
+            <li><a href='#'>Our Story</a></li>
+            <li><a href='#'>Contact Us</a></li>
+            <li class='divider'></li>
+            <li><a href='#'>Blog</a></li>
+            <li class='divider'></li>
+            <li><a href='#'>Twitter</a></li>
+            <li><a href='#'>Facebook</a></li>
+          </ul>
+        </li>
+        -->
+      </ul>
+    </nav>
+  </header>
+
+  <section style="padding-top: 70px;">
+    <div class='container'>
+      <div class='row well well-lg'>
+        <div class='col-md-6'>
+          <h2>Comment Box App</h2>
+          <p class='lead'>
+            The comment box below is made up of a parent React component called <i>CommentBox</i>. It has two children components,
+            <i>CommentForm</i> and <i>Comments</i> that are used to take input and display previous comments.
+          </p>
+        </div>
+        <div class='col-md-6 visible-md visible-lg'>
+          <img src='images/img-header.jpg' alt='Blast off with Bootstrap' />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div id="commentarea"></div>
+    
+    <!--
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          
+        </div>
+      </div>
+    </div>
+    -->
+    
+    <br><br>
+    
+    
+    
+    <br><br>
+    
+  
+  </section>
+
+  <div class='footer'>
+    <div class='container'>
+      <div class='row'>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/jquery/jquery-2.1.4.min.js"></script>
+  <script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+  
+  <!-- Internet libraries -->
+  <!--
+  <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  -->
+  <!-- Local libraries -->
+  <script src="/js/react.js"></script>
+  <script src="/js/react-dom.js"></script>
+  <script src="/js/babel.min.js"></script>
+  
+  
+  <script type="text/babel">
+
+    //This is a the parent component that contains all other child components in this app.
+    class CommentBox extends React.Component {
+      
+      constructor() {
+        super(); //this must be called first inside a custructor.
+        
+        this.state = {
+          showComments: true, //show comments as an initial state.
+          btnText: "Hide Comments",
+          comments: [
+            { id: 1, author: 'Morgan McCircuit', body: 'Great picture!'},
+            { id: 2, author: 'Bending Bender', body: 'Execellent stuff'}
+          ]
+        };
+      }
+      
+      render() {
+        var comments = this._getComments();
+        var commentsTitle = this._getCommentsTitle(comments.length);
+        
+        var commentNodes;
+        if(this.state.showComments) {
+          commentNodes = <div className="row">{comments}</div>;
+        }
+        
+        return(
+          <div className="container well">
+            <CommentForm addComment={this._addComment.bind(this)} />
+            <hr className="myhr" />
+            <div className="row">
+              <div className="col-sm-6">
+                <h3>User Comments</h3>
+              </div>
+              <div className="col-sm-6 text-right">
+                <h4 className="">
+                  {commentsTitle}
+                  <span className="spacer"></span>
+                  <button className="btn btn-primary" onClick={this._showCommentsBtnClick.bind(this)}>{this.state.btnText}</button>
+                </h4>
+              </div>
+            </div>
+            {commentNodes}
+          </div>
+        ); 
+      }
+
+      //This function retrieves comments from the server.
+      _getComments() {
+        
+        return this.state.comments.map((comment) => { //Each element of commentList is passed as an argument.
+          return (
+            <Comment author={comment.author} body={comment.body} key={comment.id} />
+          );
+        });
+      }
+      
+      //This function formats the title displaying how many comments exit.
+      _getCommentsTitle(commentCount) {
+        if (commentCount === 0) {
+          return 'No comments yet';
+        } else if (commentCount === 1) {
+          return '1 comment';
+        } else {
+          return `${commentCount} comments`;
+        }
+      }
+      
+      //Toggles the showComments state when the button is clicked.
+      _showCommentsBtnClick() {
+        
+        if(this.state.showComments) {
+          this.setState({
+            showComments: !this.state.showComments,
+            btnText: "Show Comments"
+          });
+        } else {
+          this.setState({
+            showComments: !this.state.showComments,
+            btnText: "Hide Comments"
+          });
+        }
+      }
+      
+      //Gets triggered by CommentForm when a new comment is added.
+      _addComment(author, body) {	
+        const comment = { //New comment object
+          id: this.state.comments.length +1,
+          author,
+          body
+        };
+        
+        //Updates state when function is called by adding a new comment.
+        //New array references help React stay fast, so 'concat' works better than 'push' here.
+        this.setState({ comments: this.state.comments.concat([comment]) }); 
+      }
+      
+    }
+   
+    //The Comment component is replicated for each comment.
+    class Comment extends React.Component {
+      render() {
+        return(
+          <div className="col-sm-6">
+            <div className="row">
+              <div className="col-sm-2">
+                <div className="thumbnail">
+                  <img className="img-responsive user-photo" src="images/avatar_2x.png" />
+                </div>
+              </div>
+
+              <div className="col-sm-10">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <strong>{this.props.author}</strong> <span className="text-muted">commented 5 days ago</span>
+                  </div>
+                  <div className="panel-body">
+                    <p>
+                      {this.props.body}
+                    </p>
+                    <button className="btn btn-sm btn-danger pull-right">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+
+    //This comment form allows users to add a comment.
+    class CommentForm extends React.Component {
+      render() {
+        return(
+          <div className="row">
+            <div className="col-sm-12">
+              <h3>Add Your Comment</h3>
+              <form onSubmit={this._handleSubmit.bind(this)}>
+                <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">Name</label>
+                  <input type="text" className="form-control" id="commentName" placeholder="Name" ref={(input) => this._author = input} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="commentMessage">Message</label>
+                  <textarea type="text" rows="2" className="form-control" id="commentMessage" placeholder="Message" ref={(textarea) => this._body = textarea}></textarea>
+                </div>
+
+                <button type="submit" className="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>        
+        );
+      }
+      
+      _handleSubmit(event) {
+        event.preventDefault(); //Prevent page from reloading.
+        
+        var author = this._author; //Populated from refs in JSX
+        var body = this._body;
+
+        this.props.addComment(author.value, body.value); 
+      }
+    }
+
+    ReactDOM.render(
+      <CommentBox />, document.getElementById('commentarea')
+    );
+
+  </script>
+  
+</body>
+</html>
