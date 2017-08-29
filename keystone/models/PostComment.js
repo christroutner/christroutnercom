@@ -11,9 +11,9 @@ var PostComment = new keystone.List('PostComment', {
 });
 
 PostComment.add({
-        post: { type: Types.Relationship, ref: 'Post', index: true },
-        date: { type: Types.Date, default: Date.now, index: true },
-        commentername: { type: String },
+  post: { type: Types.Relationship, ref: 'Post', index: true },
+  date: { type: Types.Date, default: Date.now, index: true },
+  commentername: { type: String },
 	email: { type: Types.Email },
 	content: { type: Types.Markdown }
 });
