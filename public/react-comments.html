@@ -268,7 +268,7 @@
       _fetchComments() {
         $.get('/api/reactcomments/list', '', (comments) => {
           debugger;
-          this.setState({ comments });
+          this.setState({ comments: comments.comments });
         });
       }
       
