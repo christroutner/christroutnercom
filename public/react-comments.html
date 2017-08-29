@@ -165,8 +165,8 @@
           showComments: true, //show comments as an initial state.
           btnText: "Hide Comments",
           comments: []
-          //  { id: 1, author: 'Morgan McCircuit', body: 'Great picture!'},
-          //  { id: 2, author: 'Bending Bender', body: 'Execellent stuff'}
+          //  { _id: 1, author: 'Morgan McCircuit', body: 'Great picture!'},
+          //  { _id: 2, author: 'Bending Bender', body: 'Execellent stuff'}
           //]
         };
       }
@@ -176,7 +176,7 @@
       }
       
       render() {
-        var comments = this.state.comments;
+        var comments = this._getComments();
         var commentsTitle = this._getCommentsTitle(comments.length);
         
         var commentNodes;
@@ -210,7 +210,7 @@
         
         return this.state.comments.map((comment) => { //Each element of commentList is passed as an argument.
           return (
-            <Comment author={comment.author} body={comment.body} key={comment.id} />
+            <Comment author={comment.author} body={comment.body} key={comment._id} />
           );
         });
       }
