@@ -171,6 +171,10 @@
         };
       }
       
+      componentWillMount() {
+        _fetchComments(); //Fetch comments from server before component is rendered.
+      }
+      
       render() {
         var comments = this._getComments();
         var commentsTitle = this._getCommentsTitle(comments.length);
@@ -249,6 +253,13 @@
         //Updates state when function is called by adding a new comment.
         //New array references help React stay fast, so 'concat' works better than 'push' here.
         this.setState({ comments: this.state.comments.concat([comment]) }); 
+      }
+      
+      _fetchComments() {
+        $.get('/api/reactcomments/list', '', (comments) => {
+          debugger;
+          this.setState({ comments });
+        });
       }
       
     }
