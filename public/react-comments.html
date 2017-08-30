@@ -287,7 +287,11 @@
         
         //Remove the comment from the server
         $.get('/api/reactcomments/'+comment._id+'/remove', '', function(data) {
-          debugger;
+          //debugger;
+          
+          if(!data.success) {
+            console.warn('Server reported that deletion of comment was not successful!');
+          }
         });
         
         //We will not wait for the API request to be finished before updating the component's state. 
