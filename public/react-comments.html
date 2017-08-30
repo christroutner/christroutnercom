@@ -206,7 +206,11 @@
       }
 
       componentDidMount() {
-        setInterval(() => this._fetchComments(), 5000); //Polls the server every 5 seconds.
+        this._timer = setInterval(() => this._fetchComments(), 5000); //Polls the server every 5 seconds.
+      }
+      
+      componentWillUnmount() {			//Runs when component is about to be removed from the DOM.
+        clearInterval(this._timer);	//Remove the timer
       }
       
       //This function retrieves comments from the server.
