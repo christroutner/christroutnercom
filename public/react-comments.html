@@ -206,7 +206,7 @@
       }
 
       componentDidMount() {
-        this._timer = setInterval(() => this._fetchComments(), 5000); //Polls the server every 5 seconds.
+        this._timer = setInterval(() => this._fetchComments(), 10000); //Polls the server every 10 seconds.
       }
       
       componentWillUnmount() {			//Runs when component is about to be removed from the DOM.
@@ -218,7 +218,8 @@
         
         return this.state.comments.map((comment) => { //Each element of commentList is passed as an argument.
           return (
-            <Comment author={comment.author} body={comment.body} dateStamp={comment.dateStamp} key={comment._id} />
+            //The delete event handler is defined in the parent component, so a handle is passed as a prop to the child component.
+            <Comment author={comment.author} body={comment.body} dateStamp={comment.dateStamp} key={comment._id} onDelete={this._deleteComment.bind(this)} />
           );
         });
       }
@@ -279,6 +280,23 @@
         });
       }
       
+      //This function is responsible for deleting comments from the server.
+      //It's called when a user clicks the delete button.
+      _deleteComment(comment) {
+        
+        //Remove the comment from the server
+        $.get('/api/reactcomments/'+comment._id+'/remove', '', function(data) {
+          debugger;
+        });
+        
+        //We will not wait for the API request to be finished before updating the component's state. 
+        //We will give our user immediate visual feedback, which is known as an *optimistic update*.	
+        const comments = [...this.state.comments]; //Use spread operator to clone existing array.
+        const commentIndex = comments.indexOf(comment);
+        comments.splice(commentIndex, 1);	//Removes comment from array
+
+        this.setState({ comments }); //Update the state.
+      }
     }
    
     //The Comment component is replicated for each comment.
@@ -302,13 +320,20 @@
                     <p>
                       {this.props.body}
                     </p>
-                    <button className="btn btn-sm btn-danger pull-right">Delete</button>
+                    <button className="btn btn-sm btn-danger pull-right" onClick={this._handleDelete.bind(this)}>Delete</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         );
+      }
+      
+      _handleDelete(event) {
+        event.preventDefault();	//Prevent page scrolling
+        if(confirm('Are you sure?')) {
+          this.props.onDelete(this.props.comment);	//Pass the current comment as an argument to the onDelete prop, which invokes the _handleDelete() function.
+        }
       }
     }
 
