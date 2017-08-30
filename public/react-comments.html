@@ -292,6 +292,19 @@
           if(!data.success) {
             console.warn('Server reported that deletion of comment was not successful!');
           }
+        })
+        //If sending the data to the server fails:
+        .fail(function( jqxhr, textStatus, error ) {
+          debugger;
+
+          var err = textStatus + ", " + error;
+
+          try {
+            console.log( "Request Failed: " + error );
+            console.error('Error message: '+jqxhr.responseText);
+          } catch(err) {
+            console.error('Error trying to delete comment from server.');
+          }            
         });
         
         //We will not wait for the API request to be finished before updating the component's state. 
