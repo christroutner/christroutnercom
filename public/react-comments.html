@@ -101,7 +101,7 @@
           </p>
         </div>
         <div class='col-md-6 visible-md visible-lg'>
-          <img src='images/img-header.jpg' alt='Blast off with Bootstrap' />
+          <img src='/images/sailboat-400x250.jpg' alt='React Blog Comment Example' />
         </div>
       </div>
 
@@ -205,6 +205,10 @@
         ); 
       }
 
+      componentDidMount() {
+        setInterval(() => this._fetchComments(), 5000); //Polls the server every 5 seconds.
+      }
+      
       //This function retrieves comments from the server.
       _getComments() {
         
@@ -259,15 +263,14 @@
         //New array references help React stay fast, so 'concat' works better than 'push' here.
         this.setState({ comments: this.state.comments.concat([comment]) }); 
         
-        debugger;
+        //Create a new post on the server.
         $.post('/api/reactcomments/create', comment, (data) => {
-          debugger;
+          //debugger;
         });
       }
       
       _fetchComments() {
         $.get('/api/reactcomments/list', '', (comments) => {
-          debugger;
           this.setState({ comments: comments.comments });
         });
       }
