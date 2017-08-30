@@ -219,7 +219,8 @@
         return this.state.comments.map((comment) => { //Each element of commentList is passed as an argument.
           return (
             //The delete event handler is defined in the parent component, so a handle is passed as a prop to the child component.
-            <Comment author={comment.author} body={comment.body} dateStamp={comment.dateStamp} key={comment._id} onDelete={this._deleteComment.bind(this)} />
+            //<Comment author={comment.author} body={comment.body} dateStamp={comment.dateStamp} key={comment._id} onDelete={this._deleteComment.bind(this)} />
+            <Comment key={comment._id} comment={comment} onDelete={this._deleteComment.bind(this)} />
           );
         });
       }
@@ -314,11 +315,11 @@
               <div className="col-sm-10">
                 <div className="panel panel-default">
                   <div className="panel-heading">
-                    <strong>{this.props.author}</strong> <span className="text-muted">commented {this.props.dateStamp}</span>
+                    <strong>{this.props.comment.author}</strong> <span className="text-muted">commented {this.props.comment.dateStamp}</span>
                   </div>
                   <div className="panel-body">
                     <p>
-                      {this.props.body}
+                      {this.props.comment.body}
                     </p>
                     <button className="btn btn-sm btn-danger pull-right" onClick={this._handleDelete.bind(this)}>Delete</button>
                   </div>
