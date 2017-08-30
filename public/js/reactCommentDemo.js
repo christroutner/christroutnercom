@@ -132,6 +132,7 @@ class CommentBox extends React.Component {
     });
   }
 
+  //Fetch comments from the server, then populate the DOM with the data.
   _fetchComments() {
     $.get('/api/reactcomments/list', '', (comments) => {
       this.setState({ comments: comments.comments });
@@ -152,7 +153,7 @@ class CommentBox extends React.Component {
   }
 
   //This function is responsible for deleting comments from the server.
-  //It's called when a user clicks the delete button.
+  //It's called when a user clicks the delete button in one of the Comment components.
   _deleteComment(comment) {
 
     //Remove the comment from the server
@@ -217,6 +218,7 @@ class Comment extends React.Component {
     );
   }
 
+  //Wraper for this component. Passes control to the _deleteComment function in the CommentBox component.
   _handleDelete(event) {
     event.preventDefault();	//Prevent page scrolling
     if(confirm('Are you sure?')) {
@@ -249,6 +251,7 @@ class CommentForm extends React.Component {
     );
   }
 
+  //Get the form data and pass them on to the _addComment function in the parent component.
   _handleSubmit(event) {
     event.preventDefault(); //Prevent page from reloading.
 
